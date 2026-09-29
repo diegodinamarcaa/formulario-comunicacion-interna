@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solicitud de Comunicación Interna | SSM</title>
+<style>
+:root{
+  --navy:#17365d;--blue:#2f75b5;--red:#d93644;--ink:#263238;--muted:#6b7785;
+  --line:#d9e2ea;--soft:#edf5fa;--ok:#eaf7ef;--warn:#fff8ec;--danger:#fff1f2
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);
+background:linear-gradient(180deg,#f7f9fc 0,#eef4f8 100%)}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 56px}
+.hero{background:linear-gradient(135deg,var(--navy),#244e7b);color:white;border-radius:24px;
+padding:30px;box-shadow:0 16px 40px rgba(23,54,93,.16)}
+.hero small{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;opacity:.85}
+.hero h1{font-size:32px;margin:8px 0}
+.hero p{margin:0;max-width:760px;color:#eaf2f8;line-height:1.5}
+.note,.card{background:white;border:1px solid var(--line);box-shadow:0 8px 24px rgba(23,54,93,.05)}
+.note{margin-top:16px;border-radius:16px;padding:14px 16px;line-height:1.5}
+.note strong{color:var(--navy)}
+.progress-wrap{margin:20px 0 14px}
+.progress-head{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px}
+.progress{height:8px;background:#dde6ee;border-radius:99px;overflow:hidden}
+.progress>div{height:100%;width:16%;background:linear-gradient(90deg,var(--blue),#62a8dc);transition:.2s}
+.card{border-radius:20px;padding:22px;margin:14px 0}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.badge{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:white;font-weight:800}
+.head h2{margin:0;color:var(--navy);font-size:19px}
+.help{font-size:13px;color:var(--muted);line-height:1.45;margin:3px 0 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+label{font-size:13px;font-weight:700;color:#34495e}
+input,textarea,select{width:100%;border:1px solid #cfd9e2;border-radius:12px;padding:12px 13px;
+font:inherit;background:white;color:var(--ink);outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,117,181,.12)}
+textarea{min-height:115px;resize:vertical}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.choice input,.priority input{position:absolute;opacity:0;pointer-events:none}
+.choice label,.pbox{display:flex;gap:10px;border:1px solid var(--line);border-radius:14px;padding:13px;background:white;cursor:pointer;min-height:56px}
+.choice input:checked+label,.priority input:checked+.pbox{border-color:var(--blue);background:var(--soft);outline:2px solid rgba(47,117,181,.12)}
+.choice label:before{content:"";width:18px;height:18px;border:2px solid #9eb0be;border-radius:5px;flex:0 0 auto}
+.choice input:checked+label:before{background:var(--blue);border-color:var(--blue);box-shadow:inset 0 0 0 4px white}
+.priority{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.pbox{display:block;min-height:110px}
+.pbox b{display:block;color:var(--navy);margin-bottom:6px}
+.pbox small{display:block;color:var(--muted);line-height:1.4}
+.info{background:var(--warn);border:1px solid #f0d9ac;border-radius:14px;padding:13px 14px;font-size:13px;line-height:1.45;margin-bottom:14px}
+.drop{border:2px dashed #adc0cf;border-radius:16px;padding:22px;text-align:center;background:#fbfdff;cursor:pointer}
+.drop.drag{background:var(--soft);border-color:var(--blue)}
+.filelist{font-size:13px;color:var(--muted);line-height:1.55;margin-top:10px}
+.hidden{display:none!important}
+.summary{background:#fbfdff;border:1px solid var(--line);border-radius:14px;padding:14px;line-height:1.5}
+.actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:16px}
+button{border:0;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer}
+button.primary{background:var(--navy);color:white}
+button.secondary{background:#e9eff4;color:var(--navy)}
+.status{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;font-size:13px}
+.status.ok{display:block;background:var(--ok);color:#245d3b}
+.status.err{display:block;background:var(--danger);color:#8b2830}
+.req{color:var(--red)}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
+@media(max-width:760px){.grid,.choices,.priority{grid-template-columns:1fr}.hero h1{font-size:26px}.hero,.card{padding:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <small>Servicio de Salud Maule · Comunicación Interna</small>
+  <h1>Solicitud de Comunicación Interna</h1>
+  <p>Entrega los antecedentes esenciales. Comunicación Interna definirá el tratamiento, la prioridad final y el canal más adecuado.</p>
+</header>
+
+<div class="note">
+  <strong>No necesitas redactar el comunicado.</strong>
+  Completa la información de manera simple y validada. La prioridad seleccionada y la fecha de publicación serán revisadas por Comunicación Interna según la programación y los espacios disponibles.
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-head"><span>Avance del formulario</span><span id="pt">1 de 6</span></div>
+  <div class="progress"><div id="pb"></div></div>
+</div>
+
+<form id="form" action="https://usebasin.com/f/a59ce1c19d3a" method="POST" enctype="multipart/form-data">
+
+<section class="card" data-step>
+  <div class="head"><div class="badge">1</div><h2>Datos de quien solicita</h2></div>
+  <p class="help">Solo necesitamos identificar a la persona que envía la solicitud.</p>
+  <div class="grid">
+    <div class="field">
+      <label>Nombre y cargo <span class="req">*</span></label>
+      <input name="Solicitante" required placeholder="Ej.: María Pérez · Jefa de Departamento">
+    </div>
+    <div class="field">
+      <label>Área / Departamento / Unidad <span class="req">*</span></label>
+      <input name="Área" required placeholder="Ej.: Gestión de las Personas">
+    </div>
+  </div>
+  <div class="field">
+    <label>Correo institucional <span class="req">*</span></label>
+    <input type="email" name="Correo institucional" required placeholder="nombre@ssmaule.cl">
+  </div>
+
+  <div class="field">
+    <label>¿Hay otra persona que pueda resolver dudas sobre esta información?</label>
+    <div class="choices">
+      <div class="choice"><input id="contactoNo" type="radio" name="¿Existe contacto técnico adicional?" value="No" checked><label for="contactoNo">No</label></div>
+      <div class="choice"><input id="contactoSi" type="radio" name="¿Existe contacto técnico adicional?" value="Sí"><label for="contactoSi">Sí</label></div>
+    </div>
+  </div>
+  <div id="contactoWrap" class="field hidden">
+    <label>Nombre y contacto de referencia</label>
+    <input name="Contacto técnico adicional" placeholder="Nombre, cargo, correo y/o teléfono">
+  </div>
+</section>
+
+<section class="card" data-step>
+  <div class="head"><div class="badge">2</div><h2>¿Qué necesitas comunicar?</h2></div>
+  <div class="field">
+    <label>Tipo de información <span class="req">*</span></label>
+    <select id="tipo" name="Tipo de información" required>
+      <option value="">Selecciona una opción</option>
+      <option>Actividad ya realizada</option>
+      <option>Actividad próxima</option>
+      <option>Curso o capacitación</option>
+      <option>Convocatoria o inscripción</option>
+      <option>Información o instrucción interna</option>
+      <option>Reconocimiento o efeméride</option>
+      <option>Otro</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Tema o asunto <span class="req">*</span></label>
+    <input id="tema" name="Tema" required maxlength="120" placeholder="Ej.: Capacitación en... / Cambio de procedimiento...">
+  </div>
+  <div class="field">
+    <label>Cuéntanos brevemente qué necesitamos saber <span class="req">*</span></label>
+    <textarea name="Antecedentes" required maxlength="2200" placeholder="Explica qué ocurrió o qué ocurrirá, por qué es relevante y los datos que no pueden faltar."></textarea>
+  </div>
+</section>
+
+<section class="card" data-step>
+  <div class="head"><div class="badge">3</div><h2>¿A quién va dirigido?</h2></div>
+  <p class="help">Marca uno o más públicos.</p>
+  <div class="choices">
+    <div class="choice"><input id="p1" type="checkbox" name="Público - Dirección del SSM" value="Sí"><label for="p1">Dirección del SSM</label></div>
+    <div class="choice"><input id="p2" type="checkbox" name="Público - Jefaturas" value="Sí"><label for="p2">Jefaturas</label></div>
+    <div class="choice"><input id="p3" type="checkbox" name="Público - Toda la red" value="Sí"><label for="p3">Toda la red</label></div>
+  </div>
+</section>
+
+<section class="card" data-step>
+  <div class="head"><div class="badge">4</div><h2>Fecha y acción esperada</h2></div>
+
+  <div id="fechaActividadWrap" class="field hidden">
+    <label id="fechaActividadLabel">Fecha de la actividad</label>
+    <input id="fechaActividad" type="date" name="Fecha de actividad">
+  </div>
+
+  <div class="field">
+    <label>¿Qué debe hacer quien recibe la información? <span class="req">*</span></label>
+    <select id="accion" name="Acción esperada" required>
+      <option value="">Selecciona una opción</option>
+      <option>Solo informarse</option>
+      <option>Inscribirse</option>
+      <option>Responder</option>
+      <option>Asistir</option>
+      <option>Completar un formulario</option>
+      <option>Cumplir una instrucción</option>
+      <option>Otro</option>
+    </select>
+  </div>
+
+  <div id="fechaLimiteWrap" class="field hidden">
+    <label id="fechaLimiteLabel">Fecha límite</label>
+    <input id="fechaLimite" type="date" name="Fecha límite de acción">
+  </div>
+
+  <div class="field">
+    <label>Canal para consultas, si corresponde</label>
+    <input name="Canal de consultas" placeholder="Correo, teléfono o persona de contacto">
+  </div>
+</section>
+
+<section class="card" data-step>
+  <div class="head"><div class="badge">5</div><h2>Prioridad sugerida</h2></div>
+
+  <div class="info">
+    <strong>Importante:</strong> esta selección es referencial. Comunicación Interna revisará la solicitud y podrá ajustar la prioridad y la fecha de publicación según urgencia real, impacto, vigencia, disponibilidad de espacios y programación de contenidos.
+  </div>
+
+  <div class="priority">
+    <label><input type="radio" name="Prioridad sugerida" value="Urgente" required><div class="pbox"><b>Urgente</b><small>No puede esperar al siguiente envío programado porque existe riesgo, incumplimiento, afectación operativa o una instrucción que requiere difusión inmediata.</small></div></label>
+    <label><input type="radio" name="Prioridad sugerida" value="Importante"><div class="pbox"><b>Importante</b><small>Debe difundirse prontamente por su relevancia o porque existe una acción o plazo cercano, pero puede incorporarse a la programación.</small></div></label>
+    <label><input type="radio" name="Prioridad sugerida" value="Programable"><div class="pbox"><b>Programable</b><small>Es relevante, pero puede calendarizarse sin perder utilidad.</small></div></label>
+    <label><input type="radio" name="Prioridad sugerida" value="Complementaria"><div class="pbox"><b>Complementaria</b><small>Aporta información, reconocimiento o pertenencia, sin requerir una acción inmediata.</small></div></label>
+  </div>
+
+  <div id="urgenciaWrap" class="field hidden">
+    <label>¿Qué ocurre si esta información espera? <span class="req">*</span></label>
+    <textarea id="urgencia" name="Justificación de urgencia" maxlength="900" placeholder="Explica el riesgo, incumplimiento o afectación concreta."></textarea>
+  </div>
+</section>
+
+<section class="card" data-step>
+  <div class="head"><div class="badge">6</div><h2>Material de apoyo</h2></div>
+  <p class="help">Puedes adjuntar documentos, imágenes o videos. El total de archivos no puede superar <strong>10 MB</strong>. Para archivos más pesados, agrega un enlace.</p>
+
+  <div class="drop" id="drop">
+    <b>Arrastra tus archivos aquí</b><br>
+    <span style="color:var(--muted);font-size:13px">o haz clic para seleccionarlos</span>
+    <input id="files" name="Adjuntos[]" type="file" multiple hidden
+      accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp,.mp4,.mov,.m4v">
+  </div>
+  <div id="fileList" class="filelist">Sin archivos seleccionados · límite total 10 MB</div>
+
+  <div class="field">
+    <label>Enlace de apoyo / video / documento</label>
+    <input type="url" name="Enlace" placeholder="https://...">
+  </div>
+
+  <div class="summary" id="summary">
+    Completa el formulario y aquí verás un resumen antes de enviarlo.
+  </div>
+
+  <div class="actions">
+    <button class="secondary" type="button" id="review">Actualizar resumen</button>
+    <button class="primary" type="submit">Enviar solicitud</button>
+  </div>
+  <div id="status" class="status"></div>
+</section>
+</form>
+
+<footer>Comunicación Interna · Servicio de Salud Maule</footer>
+</div>
+
+<script>
+const MAX_TOTAL = 10 * 1024 * 1024;
+const form = document.getElementById('form');
+const tipo = document.getElementById('tipo');
+const accion = document.getElementById('accion');
+const fechaActividadWrap = document.getElementById('fechaActividadWrap');
+const fechaActividad = document.getElementById('fechaActividad');
+const fechaActividadLabel = document.getElementById('fechaActividadLabel');
+const fechaLimiteWrap = document.getElementById('fechaLimiteWrap');
+const fechaLimite = document.getElementById('fechaLimite');
+const fechaLimiteLabel = document.getElementById('fechaLimiteLabel');
+const fileInput = document.getElementById('files');
+const fileList = document.getElementById('fileList');
+const drop = document.getElementById('drop');
+const statusBox = document.getElementById('status');
+const progressBar = document.getElementById('pb');
+const progressText = document.getElementById('pt');
+
+const bytes=n=>n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(2)+' MB';
+const show=(m,c)=>{statusBox.className='status '+c;statusBox.textContent=m};
+const clear=()=>{statusBox.className='status';statusBox.textContent=''};
+
+document.querySelectorAll('input[name="¿Existe contacto técnico adicional?"]').forEach(el=>{
+  el.addEventListener('change',()=>{
+    document.getElementById('contactoWrap').classList.toggle('hidden',document.getElementById('contactoNo').checked);
+  });
+});
+
+function updateTipo(){
+  const v=tipo.value;
+  let showDate=['Actividad ya realizada','Actividad próxima','Curso o capacitación'].includes(v);
+  fechaActividadWrap.classList.toggle('hidden',!showDate);
+  fechaActividad.required=showDate;
+  if(v==='Actividad ya realizada') fechaActividadLabel.textContent='¿Cuándo se realizó?';
+  else if(v==='Actividad próxima') fechaActividadLabel.textContent='¿Cuándo se realizará?';
+  else if(v==='Curso o capacitación') fechaActividadLabel.textContent='Fecha de realización';
+}
+tipo.addEventListener('change',updateTipo);
+
+function updateAccion(){
+  const v=accion.value;
+  const showDate=['Inscribirse','Responder','Completar un formulario'].includes(v);
+  fechaLimiteWrap.classList.toggle('hidden',!showDate);
+  fechaLimite.required=showDate;
+  if(v==='Inscribirse') fechaLimiteLabel.textContent='¿Hasta cuándo puede inscribirse?';
+  else if(v==='Responder') fechaLimiteLabel.textContent='¿Hasta cuándo puede responder?';
+  else if(v==='Completar un formulario') fechaLimiteLabel.textContent='¿Hasta cuándo puede completar el formulario?';
+}
+accion.addEventListener('change',updateAccion);
+
+document.querySelectorAll('input[name="Prioridad sugerida"]').forEach(el=>{
+  el.addEventListener('change',()=>{
+    const urgent=document.querySelector('input[name="Prioridad sugerida"]:checked')?.value==='Urgente';
+    document.getElementById('urgenciaWrap').classList.toggle('hidden',!urgent);
+    document.getElementById('urgencia').required=urgent;
+  });
+});
+
+function validateFiles(){
+  const files=[...fileInput.files];
+  const total=files.reduce((s,f)=>s+f.size,0);
+  if(total>MAX_TOTAL){
+    fileInput.value='';
+    fileList.innerHTML='<span style="color:#8b2830;font-weight:700">El total supera 10 MB. Reduce el tamaño o usa un enlace.</span>';
+    show('El total de archivos supera 10 MB.','err');
+    return false;
+  }
+  fileList.innerHTML = files.length
+    ? files.map(f=>'📎 '+f.name+' · '+bytes(f.size)).join('<br>')+'<br><strong>Total: '+bytes(total)+' de 10 MB</strong>'
+    : 'Sin archivos seleccionados · límite total 10 MB';
+  clear(); return true;
+}
+
+drop.addEventListener('click',()=>fileInput.click());
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag')});
+drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));
+drop.addEventListener('drop',e=>{
+  e.preventDefault();drop.classList.remove('drag');
+  const dt=new DataTransfer();
+  [...e.dataTransfer.files].forEach(f=>dt.items.add(f));
+  fileInput.files=dt.files;
+  validateFiles();
+});
+fileInput.addEventListener('change',validateFiles);
+
+function updateSummary(){
+  const fd=new FormData(form);
+  const pubs=[];
+  if(document.getElementById('p1').checked) pubs.push('Dirección del SSM');
+  if(document.getElementById('p2').checked) pubs.push('Jefaturas');
+  if(document.getElementById('p3').checked) pubs.push('Toda la red');
+  document.getElementById('summary').innerHTML=
+    '<b>'+(fd.get('Tema')||'Sin tema')+'</b><br>'+
+    '<b>Tipo:</b> '+(fd.get('Tipo de información')||'—')+
+    ' · <b>Público:</b> '+(pubs.join(', ')||'—')+'<br>'+
+    '<b>Acción:</b> '+(fd.get('Acción esperada')||'—')+
+    ' · <b>Prioridad sugerida:</b> '+(fd.get('Prioridad sugerida')||'—')+'<br>'+
+    '<b>Adjuntos:</b> '+fileInput.files.length+
+    ' · <b>Enlace:</b> '+(fd.get('Enlace')?'Sí':'No');
+}
+
+function updateProgress(){
+  const sections=[...document.querySelectorAll('[data-step]')];
+  let done=0;
+  sections.forEach(sec=>{
+    const required=[...sec.querySelectorAll('[required]')].filter(x=>!x.closest('.hidden'));
+    const ok=required.length===0 || required.every(el=>{
+      if(el.type==='radio') return !!sec.querySelector('input[name="'+el.name+'"]:checked');
+      if(el.type==='checkbox') return el.checked;
+      return !!el.value;
+    });
+    if(ok) done++;
+  });
+  progressBar.style.width=Math.max(1,Math.round(done/sections.length*100))+'%';
+  progressText.textContent=Math.max(1,done)+' de '+sections.length;
+}
+
+document.getElementById('review').addEventListener('click',updateSummary);
+form.addEventListener('input',()=>{updateProgress();updateSummary()});
+form.addEventListener('change',()=>{updateProgress();updateSummary()});
+updateProgress();
+
+form.addEventListener('submit',e=>{
+  clear();
+  if(!form.checkValidity()){
+    e.preventDefault();form.reportValidity();return;
+  }
+  if(!document.querySelector('#p1:checked,#p2:checked,#p3:checked')){
+    e.preventDefault();show('Selecciona al menos un público objetivo.','err');return;
+  }
+  if(!validateFiles()){e.preventDefault();return;}
+  show('Enviando solicitud…','ok');
+});
+</script>
+</body>
+</html>
