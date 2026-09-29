@@ -1,0 +1,14 @@
+{
+  "name": "ssm-comunicacion-interna-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:remote": "wrangler d1 execute comunicacion-interna --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.35.0"
+  }
+}
