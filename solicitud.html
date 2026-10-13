@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSM Informa · Solicitud de publicación</title>
+<style>
+:root{--navy:#0B2B58;--red:#EF3E4A;--red2:#C62838;--blue:#176DB5;--ink:#1D3550;--muted:#5F7489;--line:#D7E3ED;--bg:#EEF4F8;--soft:#F5F9FC;--ok:#18A957}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;line-height:1.45}
+.bar{height:6px;display:flex}.bar i{display:block}.bar i:nth-child(1){flex:62;background:#0D5BAA}.bar i:nth-child(2){flex:18;background:#31C5C7}.bar i:nth-child(3){flex:20;background:#E53B45}
+header{background:var(--navy);color:#fff;padding:26px 16px 64px}
+.wrap{max-width:720px;margin:0 auto}
+.brand{font-size:28px;font-weight:900;letter-spacing:-1px}.brand span{color:#FF5C68}
+header h1{font-size:clamp(23px,4vw,32px);line-height:1.15;margin:12px 0 8px;font-weight:900}
+header p{margin:0;color:#C9DCEF;font-size:15px}
+main{margin-top:-42px;padding:0 16px 36px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 32px rgba(8,43,85,.08)}
+fieldset{border:0;margin:0;padding:22px 22px 6px;border-bottom:1px solid var(--line)}
+legend{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:900;color:var(--navy);padding:0;margin-bottom:12px}
+legend .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--navy);color:#fff;font-size:13px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f{margin-bottom:14px}
+.l{display:block;font-weight:800;font-size:13px;color:var(--navy);margin-bottom:5px}
+.l em{font-style:normal;color:var(--red2)}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+input[type=text],input[type=email],input[type=url],select,textarea{width:100%;font:inherit;font-size:14px;color:var(--ink);background:#fff;border:1.5px solid #C9D8E6;border-radius:11px;padding:10px 12px}
+select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230B2B58' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px;cursor:pointer}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(23,109,181,.14)}
+.invalid{border-color:var(--red2)!important;box-shadow:0 0 0 4px rgba(198,40,56,.12)!important}
+.count{float:right;font-weight:700;font-size:11px;color:var(--muted)}.count.over{color:var(--red2)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg label{position:relative;border:1.5px solid #C9D8E6;border-radius:999px;padding:8px 15px;font-size:13px;font-weight:700;cursor:pointer;background:#fff}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--navy);color:#fff;border-color:var(--navy)}
+.seg label.urg:has(input:checked){background:var(--red2);border-color:var(--red2)}
+.seg label:has(input:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+.urgent{background:#FFF4F5;border:1px solid #F6C9D0;border-radius:12px;padding:12px;margin-top:10px}
+.check{display:flex;gap:10px;align-items:flex-start;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;margin-bottom:12px;cursor:pointer}
+.check input{margin-top:3px;width:18px;height:18px;accent-color:var(--blue);flex:none}
+.drop{display:block;border:2px dashed #9DBBD6;border-radius:14px;padding:14px;text-align:center;background:var(--soft);font-size:13px;color:var(--muted);cursor:pointer}
+.drop strong{color:var(--navy)}
+.drop img{display:block;max-width:100%;max-height:160px;margin:10px auto 0;border-radius:10px}
+.actions{padding:18px 22px 6px}
+.btn{width:100%;border:0;border-radius:12px;padding:15px 18px;font:inherit;font-weight:900;font-size:15px;cursor:pointer;background:var(--red2);color:#fff;box-shadow:0 8px 18px rgba(198,40,56,.25)}
+.btn:hover{background:#A91F2E}
+.status{font-size:13px;margin:12px 22px 20px}
+.status.show{padding:12px 14px;border-radius:12px;background:#EFFAF4;border:1px solid #BFE6D2;color:#145C3A}
+.status.err{background:#FFF1F3;border-color:#F6C9D0;color:#8E1B2B}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:6px 16px 28px}
+@media(max-width:620px){.row{grid-template-columns:1fr}fieldset{padding:20px 16px 4px}.actions{padding:16px 16px 4px}.status{margin:12px 16px 18px}}
+</style>
+</head>
+<body>
+<div class="bar"><i></i><i></i><i></i></div>
+<header>
+ <div class="wrap">
+  <div class="brand">SSM <span>Informa</span></div>
+  <h1>¿Tu unidad tiene algo que contar a la red?</h1>
+  <p>Completa esta solicitud. Comunicación Interna la revisa y te confirma en qué edición saldrá.</p>
+ </div>
+</header>
+
+<main class="wrap">
+ <form class="card" id="form" novalidate>
+  <fieldset>
+   <legend><span class="n">1</span>Tu unidad</legend>
+   <div class="f"><label class="l" for="unidad">Unidad o departamento <em>*</em></label><input type="text" id="unidad" maxlength="120" placeholder="Ej.: Subdepartamento de Calidad de Vida"></div>
+   <div class="row">
+    <div class="f"><label class="l" for="responsable">Tu nombre <em>*</em></label><input type="text" id="responsable" maxlength="100" autocomplete="name"></div>
+    <div class="f"><label class="l" for="correo">Correo institucional <em>*</em></label><input type="email" id="correo" maxlength="120" autocomplete="email" placeholder="nombre@ssmaule.cl"></div>
+   </div>
+  </fieldset>
+
+  <fieldset>
+   <legend><span class="n">2</span>Tu mensaje</legend>
+   <div class="row">
+    <div class="f"><label class="l" for="tipo">Tipo de comunicación <em>*</em></label>
+     <select id="tipo">
+      <option value="">Selecciona una opción</option>
+      <option value="novedad">Novedad</option>
+      <option value="convocatoria">Convocatoria o postulación</option>
+      <option value="capacitacion">Capacitación</option>
+      <option value="beneficio">Beneficio</option>
+      <option value="recordatorio">Recordatorio o plazo</option>
+      <option value="reconocimiento">Reconocimiento</option>
+      <option value="campana">Campaña</option>
+      <option value="movilidad">Movilidad interna</option>
+      <option value="instruccion">Instrucción o protocolo</option>
+     </select></div>
+    <div class="f"><label class="l" for="publico">¿A quién va dirigido? <em>*</em></label>
+     <select id="publico">
+      <option value="">Selecciona una opción</option>
+      <option>Toda la red</option>
+      <option>Dirección de Servicio</option>
+      <option>Hospitales</option>
+      <option>Atención Primaria</option>
+      <option>Jefaturas</option>
+      <option>Gremios</option>
+     </select></div>
+   </div>
+   <div class="f"><label class="l" for="titulo">Título <em>*</em><span class="count" id="c-titulo">0/90</span></label><input type="text" id="titulo" maxlength="120" placeholder="Ej.: Abrimos inscripciones para la jornada de autocuidado"></div>
+   <div class="f"><label class="l" for="resumen">Resumen <em>*</em><span class="count" id="c-resumen">0/400</span></label><textarea id="resumen" maxlength="600" placeholder="Qué pasa, a quién le sirve y qué debe hacer la persona."></textarea><div class="hint">Que se entienda sin hacer clic. Ideal: 2 a 4 frases.</div></div>
+   <div class="row">
+    <div class="f"><label class="l" for="datoClave">Fecha, lugar o dato clave</label><input type="text" id="datoClave" maxlength="140" placeholder="Ej.: Jueves 22 de octubre · 15:00"></div>
+    <div class="f"><label class="l" for="botonUrl">Enlace (opcional)</label><input type="url" id="botonUrl" maxlength="500" placeholder="https://…"></div>
+   </div>
+   <div class="f"><span class="l">Prioridad <em>*</em></span>
+    <div class="seg" id="prioridadSeg">
+     <label><input type="radio" name="prioridad" value="normal" checked> Normal</label>
+     <label><input type="radio" name="prioridad" value="alta"> Alta, tiene plazo cercano</label>
+     <label class="urg"><input type="radio" name="prioridad" value="urgente"> Urgente</label>
+    </div>
+    <div class="urgent" id="urgentBox" hidden>
+     <label class="l" for="justificacion">¿Por qué es urgente? <em>*</em></label>
+     <textarea id="justificacion" maxlength="400" style="min-height:70px" placeholder="Ej.: El plazo de postulación vence mañana y afecta a toda la red."></textarea>
+     <div class="hint">Lo urgente puede salir en un correo extraordinario, fuera de la edición habitual.</div>
+    </div>
+   </div>
+   <div class="f"><span class="l">Imagen (opcional)</span>
+    <label class="drop"><input type="file" id="imagen" accept="image/png,image/jpeg" hidden><strong>Elige una imagen horizontal</strong><br>JPG o PNG, sin texto pequeño.<img id="imgPrev" alt="" hidden></label>
+    <div class="hint" id="imgHint">Cuando se abra tu correo, recuerda adjuntarla.</div>
+   </div>
+  </fieldset>
+
+  <fieldset style="border-bottom:0">
+   <label class="check" id="chk1"><input type="checkbox" id="vistoBueno"><span>Cuento con el visto bueno de mi jefatura para difundir esta información y los datos son correctos. <em style="color:var(--red2);font-style:normal">*</em></span></label>
+   <label class="check" id="chk2"><input type="checkbox" id="datosPersonales"><span>El contenido no incluye datos personales sensibles (RUT, diagnósticos, direcciones particulares) ni información reservada. <em style="color:var(--red2);font-style:normal">*</em></span></label>
+  </fieldset>
+  <input type="text" id="honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+  <div class="actions"><button type="submit" class="btn">Enviar solicitud →</button></div>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+ </form>
+</main>
+<footer>SSM Informa · Comunicación Interna · Servicio de Salud Maule</footer>
+
+<script>
+(()=>{
+'use strict';
+// endpoint: paste here the Google Apps Script web app address (ends in /exec). See
+// envio-formulario-apps-script/GUIA_ACTIVACION_ENVIO.html. Empty = the form opens Outlook instead.
+const CONFIG={destino:'ddinamarcaa@ssmaule.cl',endpoint:'https://script.google.com/macros/s/AKfycbyNPoBRVNhPDZWo9DswpNcAUVe6eEmeoqpmMXhDMFxARVyueWXkq_IAHE0MZeAUHAQB/exec'};
+const $=id=>document.getElementById(id);
+const form=$('form'),KEY='ssmSolicitudBorrador64';
+let imageData=null,imageName='';
+const textIds=['unidad','responsable','correo','tipo','publico','titulo','resumen','datoClave','botonUrl','justificacion'];
+const prioridad=()=>form.querySelector('input[name=prioridad]:checked')?.value||'normal';
+
+function collect(){
+ const d={schema:'ssm-solicitud-1',enviado:new Date().toISOString()};
+ textIds.forEach(id=>d[id]=$(id).value.trim());
+ d.tipoTexto=d.tipo?$('tipo').selectedOptions[0].textContent:'';
+ d.prioridad=prioridad();if(d.prioridad!=='urgente')d.justificacion='';
+ d.botonTexto=d.botonUrl?'Conoce más':'';
+ d.imagen=imageData?'si':'no';d.imagenNombre=imageName;
+ d.vistoBueno=$('vistoBueno').checked;d.sinDatosSensibles=$('datosPersonales').checked;
+ return d;
+}
+function validUrl(u){if(!u)return true;try{const x=new URL(u);return x.protocol==='https:'&&!x.username&&!x.password;}catch{return false;}}
+function errors(){
+ const e=[];
+ [['unidad','Indica tu unidad.'],['responsable','Indica tu nombre.'],['correo','Indica tu correo.'],['tipo','Elige el tipo de comunicación.'],['publico','Elige a quién va dirigido.'],['titulo','Escribe un título.'],['resumen','Escribe un resumen.']].forEach(([id,msg])=>{if(!$(id).value.trim())e.push([id,msg]);});
+ if($('correo').value.trim()&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('correo').value.trim()))e.push(['correo','El correo no parece válido.']);
+ if(!validUrl($('botonUrl').value.trim()))e.push(['botonUrl','El enlace debe comenzar con https://']);
+ const t=$('titulo').value.trim();if(t.length>12&&t===t.toUpperCase()&&/[A-ZÁÉÍÓÚÑ]/.test(t))e.push(['titulo','Escribe el título en mayúsculas y minúsculas.']);
+ if(prioridad()==='urgente'&&$('justificacion').value.trim().length<10)e.push(['justificacion','Explica por qué es urgente.']);
+ if(!$('vistoBueno').checked)e.push(['chk1','Confirma el visto bueno de tu jefatura.']);
+ if(!$('datosPersonales').checked)e.push(['chk2','Confirma que no incluye datos sensibles.']);
+ return e;
+}
+function readable(d){
+ const L=['Hola, equipo de Comunicación Interna:','','Solicito publicar el siguiente contenido en SSM Informa.',''];
+ L.push('TÍTULO: '+d.titulo,'TIPO: '+d.tipoTexto,'DIRIGIDO A: '+d.publico,'PRIORIDAD: '+({normal:'Normal',alta:'Alta, tiene plazo cercano',urgente:'URGENTE'})[d.prioridad]);
+ if(d.justificacion)L.push('POR QUÉ ES URGENTE: '+d.justificacion);
+ L.push('','RESUMEN:',d.resumen,'');
+ if(d.datoClave)L.push('DATO CLAVE: '+d.datoClave);
+ if(d.botonUrl)L.push('ENLACE: '+d.botonUrl);
+ L.push('IMAGEN: '+(d.imagen==='si'?'Sí, la adjunto ('+d.imagenNombre+')':'No'));
+ L.push('','SOLICITA: '+d.responsable+' · '+d.unidad+' · '+d.correo,'Visto bueno de jefatura: sí · Sin datos sensibles: sí');
+ L.push('','(No modifiques el bloque siguiente: permite cargar la solicitud en SSM Informa.)',block(d));
+ return L.join('\n');
+}
+function subject(d){return 'Solicitud de publicación · SSM Informa · '+(d.unidad||'Unidad')+(d.prioridad==='urgente'?' · URGENTE':'');}
+function status(msg,err){const s=$('status');s.className='status show'+(err?' err':'');s.innerHTML=msg;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(collect()));}catch{}}
+function restore(){try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(!d)return;textIds.forEach(id=>{if(d[id])$(id).value=d[id];});const p=form.querySelector(`input[name=prioridad][value="${d.prioridad}"]`);if(p)p.checked=true;}catch{}}
+function refresh(){
+ [['titulo',90],['resumen',400]].forEach(([id,max])=>{const n=$(id).value.length,c=$('c-'+id);c.textContent=n+'/'+max;c.classList.toggle('over',n>max);});
+ $('urgentBox').hidden=prioridad()!=='urgente';
+ save();
+ const s=$('status');if(s.classList.contains('err')&&!errors().length){s.className='status';s.textContent='';}
+}
+form.addEventListener('input',e=>{e.target.classList?.remove('invalid');e.target.closest('.check')?.classList.remove('invalid');refresh();});
+form.addEventListener('change',refresh);
+$('imagen').addEventListener('change',e=>{
+ const f=e.target.files?.[0];if(!f)return;
+ if(!/^image\/(png|jpeg)$/.test(f.type)){status('Usa una imagen JPG o PNG.',true);return;}
+ imageName=f.name;const r=new FileReader();r.onload=()=>{imageData=r.result;$('imgPrev').src=imageData;$('imgPrev').hidden=false;$('imgHint').textContent=(f.size>2*1024*1024?'La imagen pesa más de 2 MB; si puedes, usa una más liviana. ':'')+((CONFIG.endpoint||viaScript())?'Imagen lista: se enviará junto con tu solicitud.':'Recuerda adjuntar «'+f.name+'» al correo antes de enviarlo.');};r.readAsDataURL(f);
+});
+function block(d){return '----- SSM-SOLICITUD -----\n'+JSON.stringify(d)+'\n----- FIN SSM-SOLICITUD -----';}
+// Large photos are reduced to 1600 px JPEG before sending, so the request stays light.
+function shrinkImage(dataUrl){return new Promise(res=>{if(!dataUrl)return res('');const im=new Image();im.onload=()=>{const s=Math.min(1,1600/Math.max(im.width,im.height));if(s===1&&dataUrl.length<1.5e6)return res(dataUrl);const c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.85));};im.onerror=()=>res('');im.src=dataUrl;});}
+// Opened from the Apps Script link: send through google.script.run, without leaving the page.
+const viaScript=()=>typeof google!=='undefined'&&google.script&&google.script.run;
+function sendScript(payload){return new Promise((res,rej)=>google.script.run.withSuccessHandler(out=>out&&out.ok?res():rej(new Error(out&&out.error||'Sin respuesta'))).withFailureHandler(rej).enviarSolicitud(payload));}
+async function sendEndpoint(d){
+ const img=await shrinkImage(imageData);
+ const name=img&&img!==imageData?imageName.replace(/\.[^.]+$/,'')+'.jpg':imageName;
+ if(viaScript())return sendScript({...d,honey:$('honey').value,imagenNombre:name,imagenDatos:img});
+ // text/plain avoids a CORS preflight, which Apps Script does not answer.
+ const r=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({...d,honey:$('honey').value,imagenNombre:name,imagenDatos:img})});
+ const out=await r.json().catch(()=>({}));
+ if(!r.ok||!out.ok)throw new Error(out.error||'HTTP '+r.status);
+}
+function mailBody(d){
+ // The mail app receives everything ready to send; long texts drop the data block, then shorten the summary.
+ const base='mailto:'+CONFIG.destino+'?subject='+encodeURIComponent(subject(d))+'&body=';
+ const fits=t=>(base+encodeURIComponent(t)).length<=1900;
+ const plain=x=>{const t=readable(x);return t.slice(0,t.indexOf('\n(No modifiques'));};
+ let body=readable(d);if(fits(body))return base+encodeURIComponent(body);
+ body=plain(d);let resumen=d.resumen;
+ while(!fits(body)&&resumen.length>60){resumen=resumen.slice(0,Math.floor(resumen.length*.85)).replace(/\s+\S*$/,'');body=plain({...d,resumen:resumen+'… (continúa)'});}
+ return base+encodeURIComponent(body);
+}
+function openMail(href){const a=document.createElement('a');a.href=href;a.target='_top';document.body.append(a);a.click();a.remove();}
+function done(d,viaMail){
+ const safe=s=>String(s).replace(/[<>&"]/g,'');
+ form.innerHTML=`<div style="padding:40px 26px;text-align:center"><div style="font-size:46px">${viaMail?'✉️':'🎉'}</div><h2 style="color:var(--navy);margin:10px 0 8px;font-size:24px">${viaMail?'Tu correo está listo':'¡Solicitud enviada!'}</h2><p style="color:var(--muted);margin:0 auto 22px;max-width:460px">${viaMail?'Se abrió un mensaje dirigido a '+CONFIG.destino+'. Presiona <strong>Enviar</strong>'+(imageData?' (y adjunta tu imagen)':'')+' para que llegue a Comunicación Interna.':'Comunicación Interna recibió «'+safe(d.titulo)+'». Te escribiremos a '+safe(d.correo)+' para confirmar la edición.'}</p><button type="button" class="btn" style="max-width:280px" onclick="location.reload()">Enviar otra solicitud</button></div>`;
+ try{localStorage.removeItem(KEY);}catch{}
+}
+form.addEventListener('submit',async e=>{
+ e.preventDefault();
+ form.querySelectorAll('.invalid').forEach(n=>n.classList.remove('invalid'));
+ const errs=errors();
+ if(errs.length){errs.forEach(([id])=>$(id).classList.add('invalid'));const first=$(errs[0][0]);(first.querySelector?.('input')||first).focus();status('<strong>Falta poco:</strong> '+errs.map(x=>x[1]).join(' '),true);return;}
+ const d=collect(),btn=form.querySelector('button[type=submit]');
+ if(CONFIG.endpoint||viaScript()){
+  btn.disabled=true;btn.textContent='Enviando…';
+  try{await sendEndpoint(d);done(d,false);return;}
+  catch(err){
+   btn.disabled=false;btn.textContent='Enviar solicitud →';
+   // Do not open Outlook automatically: the request may have arrived anyway and would be duplicated.
+   status('No pudimos confirmar el envío'+(err&&err.message&&!/fetch|HTTP/.test(err.message)?' ('+err.message+')':'')+'. Inténtalo de nuevo en un momento o <a href="#" id="viaMail">envíala desde tu correo</a>.',true);
+   $('viaMail').addEventListener('click',ev=>{ev.preventDefault();openMail(mailBody(d));done(d,true);});
+   return;
+  }
+ }
+ openMail(mailBody(d));done(d,true);
+});
+$('imgHint').textContent=(CONFIG.endpoint||viaScript())?'Se envía junto con tu solicitud.':'Cuando se abra tu correo, recuerda adjuntarla.';
+restore();refresh();
+})();
+</script>
+</body>
+</html>
