@@ -63,14 +63,14 @@ button.secondary{background:#e9eff4;color:var(--navy)}
 .req{color:var(--red)}
 footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
 @media(max-width:760px){.grid,.choices,.priority{grid-template-columns:1fr}.hero h1{font-size:26px}.hero,.card{padding:20px}}
-</style>
+.choice,.priority>label{position:relative;min-width:0}.choice input,.priority input{width:1px;height:1px;padding:0;left:0;top:0}.field{min-width:0}.summary,.filelist{overflow-wrap:anywhere}input,select,textarea{min-width:0}</style>
 </head>
 <body>
 <div class="wrap">
 <header class="hero">
   <small>Servicio de Salud Maule · Comunicación Interna</small>
   <h1>Solicitud de Comunicación Interna</h1>
-  <p>Entrega los antecedentes esenciales. Comunicación Interna definirá el tratamiento, la prioridad final y el canal más adecuado.</p>
+  <p>Comunicación interna para la Dirección del Servicio de Salud Maule y su red. Completa la solicitud y envíala con sus adjuntos, sin abrir Outlook.</p>
 </header>
 
 <div class="note">
@@ -83,7 +83,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
   <div class="progress"><div id="pb"></div></div>
 </div>
 
-<form id="form" action="https://usebasin.com/f/a59ce1c19d3a" method="POST" enctype="multipart/form-data">
+<form id="form" novalidate action="https://formsubmit.co/ddinamarcaa@ssmaule.cl" method="POST" enctype="multipart/form-data">
 
 <section class="card" data-step>
   <div class="head"><div class="badge">1</div><h2>Datos de quien solicita</h2></div>
@@ -100,7 +100,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
   </div>
   <div class="field">
     <label>Correo institucional <span class="req">*</span></label>
-    <input type="email" name="Correo institucional" required placeholder="nombre@ssmaule.cl">
+    <input type="email" name="email" required placeholder="nombre@ssmaule.cl">
   </div>
 
   <div class="field">
@@ -124,7 +124,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
       <option value="">Selecciona una opción</option>
       <option>Actividad ya realizada</option>
       <option>Actividad próxima</option>
-      <option>Curso o capacitación</option>
+      <option>Curso o capacitación</option><option>Beneficio o bienestar</option><option>Movilidad interna</option><option>Planificación o metas</option><option>Campaña de prevención</option>
       <option>Convocatoria o inscripción</option>
       <option>Información o instrucción interna</option>
       <option>Reconocimiento o efeméride</option>
@@ -178,6 +178,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
     <input id="fechaLimite" type="date" name="Fecha límite de acción">
   </div>
 
+  <div class="field"><label for="fechaDifusion">Fecha deseada de difusión (opcional)</label><input id="fechaDifusion" type="date" name="Fecha deseada de difusión"><p class="help">Su programación se confirma después de revisar los antecedentes.</p></div>
   <div class="field">
     <label>Canal para consultas, si corresponde</label>
     <input name="Canal de consultas" placeholder="Correo, teléfono o persona de contacto">
@@ -211,7 +212,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
   <div class="drop" id="drop">
     <b>Arrastra tus archivos aquí</b><br>
     <span style="color:var(--muted);font-size:13px">o haz clic para seleccionarlos</span>
-    <input id="files" name="Adjuntos[]" type="file" multiple hidden
+    <input id="files"  type="file" multiple hidden
       accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp,.mp4,.mov,.m4v">
   </div>
   <div id="fileList" class="filelist">Sin archivos seleccionados · límite total 10 MB</div>
@@ -225,6 +226,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
     Completa el formulario y aquí verás un resumen antes de enviarlo.
   </div>
 
+  <label style="display:flex;gap:10px;align-items:start;margin:18px 0"><input style="width:auto" id="validado" type="checkbox" name="Visto bueno y exactitud técnica" value="Confirmados" required>Confirmo el visto bueno correspondiente y la exactitud de los antecedentes.</label>
+  <label style="display:flex;gap:10px;align-items:start;margin:18px 0"><input style="width:auto" id="sinSensibles" type="checkbox" name="Sin datos sensibles ni información reservada" value="Confirmado" required>Confirmo que no incluye datos sensibles ni información reservada. Los datos y adjuntos se procesan mediante FormSubmit para su envío al correo de Comunicación Interna.</label>
+  <input type="hidden" name="_subject" id="mailSubject"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://diegodinamarcaa.github.io/formulario-comunicacion-interna/gracias.html"><input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><textarea name="Datos para cargar en SSM Informa" id="ssmPayload" hidden></textarea><div id="attachmentFields" hidden></div>
+  <p class="help">Al enviar continuarás a FormSubmit, donde puede solicitarse una verificación antispam. El servicio requiere una activación inicial por el destinatario. Si falla, vuelve a esta página: el texto queda guardado en este navegador; vuelve a seleccionar los adjuntos. No se confirma recepción en la bandeja ni programación de publicación.</p>
   <div class="actions">
     <button class="secondary" type="button" id="review">Actualizar resumen</button>
     <button class="primary" type="submit">Enviar solicitud</button>
@@ -237,6 +242,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
 </div>
 
 <script>
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const MAX_TOTAL = 10 * 1024 * 1024;
 const form = document.getElementById('form');
 const tipo = document.getElementById('tipo');
@@ -298,13 +304,13 @@ function validateFiles(){
   const files=[...fileInput.files];
   const total=files.reduce((s,f)=>s+f.size,0);
   if(total>MAX_TOTAL){
-    fileInput.value='';
+
     fileList.innerHTML='<span style="color:#8b2830;font-weight:700">El total supera 10 MB. Reduce el tamaño o usa un enlace.</span>';
     show('El total de archivos supera 10 MB.','err');
     return false;
   }
   fileList.innerHTML = files.length
-    ? files.map(f=>'📎 '+f.name+' · '+bytes(f.size)).join('<br>')+'<br><strong>Total: '+bytes(total)+' de 10 MB</strong>'
+    ? files.map(f=>'📎 '+escapeHtml(f.name)+' · '+bytes(f.size)).join('<br>')+'<br><strong>Total: '+bytes(total)+' de 10 MB</strong>'
     : 'Sin archivos seleccionados · límite total 10 MB';
   clear(); return true;
 }
@@ -328,11 +334,11 @@ function updateSummary(){
   if(document.getElementById('p2').checked) pubs.push('Jefaturas');
   if(document.getElementById('p3').checked) pubs.push('Toda la red');
   document.getElementById('summary').innerHTML=
-    '<b>'+(fd.get('Tema')||'Sin tema')+'</b><br>'+
-    '<b>Tipo:</b> '+(fd.get('Tipo de información')||'—')+
+    '<b>'+escapeHtml(fd.get('Tema')||'Sin tema')+'</b><br>'+
+    '<b>Tipo:</b> '+escapeHtml(fd.get('Tipo de información')||'—')+
     ' · <b>Público:</b> '+(pubs.join(', ')||'—')+'<br>'+
-    '<b>Acción:</b> '+(fd.get('Acción esperada')||'—')+
-    ' · <b>Prioridad sugerida:</b> '+(fd.get('Prioridad sugerida')||'—')+'<br>'+
+    '<b>Acción:</b> '+escapeHtml(fd.get('Acción esperada')||'—')+
+    ' · <b>Prioridad sugerida:</b> '+escapeHtml(fd.get('Prioridad sugerida')||'—')+'<br>'+
     '<b>Adjuntos:</b> '+fileInput.files.length+
     ' · <b>Enlace:</b> '+(fd.get('Enlace')?'Sí':'No');
 }
@@ -367,8 +373,24 @@ form.addEventListener('submit',e=>{
     e.preventDefault();show('Selecciona al menos un público objetivo.','err');return;
   }
   if(!validateFiles()){e.preventDefault();return;}
-  show('Enviando solicitud…','ok');
+  prepareDirect();show('Continuando al servicio de envío. Completa la verificación si se solicita. Esto aún no confirma recepción en tu correo.','ok');
 });
+
+// Preserve text locally. Attachments and approval checkboxes are never restored.
+const DRAFT='ssmSolicitudDirectaV1';
+const dataControls=()=>[...form.querySelectorAll('input,textarea,select')].filter(x=>x.name&&!x.name.startsWith('_')&&x.type!=='hidden'&&x.type!=='file'&&x.type!=='checkbox'&&x.id!=='ssmPayload');
+function saveDraft(){try{localStorage.setItem(DRAFT,JSON.stringify(dataControls().map(x=>({name:x.name,type:x.type,value:x.value,checked:x.checked}))))}catch{}}
+try{const saved=JSON.parse(localStorage.getItem(DRAFT)||'[]');for(const x of dataControls()){const a=saved.find(a=>a.name===x.name&&(x.type!=='radio'||a.value===x.value));if(!a)continue;if(x.type==='radio')x.checked=a.checked;else x.value=a.value}}catch{}
+form.addEventListener('input',saveDraft);form.addEventListener('change',saveDraft);
+updateTipo();updateAccion();document.getElementById('contactoWrap').classList.toggle('hidden',document.getElementById('contactoNo').checked);document.querySelector('input[name="Prioridad sugerida"]:checked')?.dispatchEvent(new Event('change'));updateProgress();updateSummary();
+function prepareDirect(){
+ saveDraft();const fd=new FormData(form),val=n=>String(fd.get(n)||''),pubs=['p1','p2','p3'].filter(id=>document.getElementById(id).checked).map(id=>document.querySelector('label[for="'+id+'"]').textContent);
+ const payload={schema:'ssm-solicitud-1',formularioVersion:3,enviado:new Date().toISOString(),unidad:val('Área'),responsable:val('Solicitante'),correo:val('email'),titulo:val('Tema'),resumen:val('Antecedentes'),tipo:val('Tipo de información'),tipoTexto:val('Tipo de información'),publico:pubs.join(', '),accion:val('Acción esperada'),fechaDifusion:val('Fecha deseada de difusión'),datoClave:val('Fecha de actividad'),botonUrl:val('Enlace'),botonTexto:val('Enlace')?'Conoce más':'',prioridad:val('Prioridad sugerida'),justificacion:document.getElementById('urgenciaWrap').classList.contains('hidden')?'':val('Justificación de urgencia'),contactoTecnico:val('Contacto técnico adicional'),canalConsultas:val('Canal de consultas'),fechaLimite:val('Fecha límite de acción'),vistoBueno:true,sinDatosSensibles:true,imagen:[...fileInput.files].some(f=>f.type.startsWith('image/'))?'si':'no',imagenNombre:[...fileInput.files].filter(f=>f.type.startsWith('image/')).map(f=>f.name).join(', ')};
+ document.getElementById('mailSubject').value='Solicitud interna SSM · '+payload.unidad+' · '+payload.titulo;
+ document.getElementById('ssmPayload').value='----- SSM-SOLICITUD -----\n'+JSON.stringify(payload)+'\n----- FIN SSM-SOLICITUD -----';
+ const holder=document.getElementById('attachmentFields');holder.replaceChildren();[...fileInput.files].forEach((file,i)=>{const input=document.createElement('input');input.type='file';input.name='attachment'+(i+1);const dt=new DataTransfer();dt.items.add(file);input.files=dt.files;holder.append(input)});
+}
 </script>
 </body>
 </html>
+
