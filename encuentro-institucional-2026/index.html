@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0755a1">
+  <meta name="description" content="Encuentro Institucional Servicio de Salud Maule — Una Red, una Dirección Compartida. Conoce el encuentro e inscríbete.">
+  <title>Una Red, una Dirección Compartida | Servicio de Salud Maule</title>
+  <style>
+    :root{font-family:Arial,Helvetica,sans-serif;color:#0b2a5b;background:#e7f2fc;line-height:1.4}
+    *{box-sizing:border-box}body{margin:0}
+    .head{background:linear-gradient(125deg,#073776,#0876c7);padding:25px 18px;text-align:center;color:#fff}
+    .head .eyebrow{font-size:12px;letter-spacing:.15em;font-weight:800;text-transform:uppercase;opacity:.92}
+    h1{font-size:clamp(24px,5vw,42px);letter-spacing:-.035em;line-height:1.1;margin:8px auto;max-width:900px}
+    .head p{margin:5px auto 0;font-size:14px;max-width:600px;color:#d2eeff}
+    main{max-width:760px;margin:18px auto 120px;padding:0 12px}
+    .paper{border-radius:14px;background:white;padding:8px;box-shadow:0 14px 35px #0b47812b}
+    #afiche{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:9px}
+    .fallback{display:none;text-align:center;padding:36px 22px}
+    .fallback h2{font-size:clamp(24px,5vw,35px);line-height:1.15;color:#064d99}
+    .fallback .sub{font-size:19px;color:#0871c7;font-weight:bold}
+    .topic{background:#eef7ff;border-radius:12px;padding:15px;margin:16px auto;text-align:left;max-width:520px}
+    .topic strong{display:block;margin-bottom:4px;color:#0757a2}
+    .dates{font-size:18px;font-weight:bold;margin:16px auto 5px}
+    .note{font-size:14px;color:#4a5c75}
+    .location{margin-top:10px;font-weight:700}
+    .foot{font-size:13px;color:#45607e;text-align:center;margin:16px auto}
+    .fixed{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(110deg,#064787,#087ac3);padding:12px max(12px,env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom));box-shadow:0 -6px 22px #06356838;display:flex;align-items:center;gap:12px;justify-content:center;z-index:4;flex-wrap:wrap}
+    .fixed span{color:white;font-weight:700;font-size:13px}
+    a.btn{background:#ffcf35;color:#092e5d;border-radius:999px;text-decoration:none;font-weight:900;padding:13px 34px;display:inline-block;box-shadow:0 3px 0 #cb9b1d}
+    a.btn:hover,a.btn:focus-visible{background:#ffe37c}
+    @media(max-width:520px){main{margin:10px auto 130px;padding:0 8px}.paper{padding:5px;border-radius:10px}.fixed{flex-direction:column;gap:6px}.fixed span{font-size:12px}.fallback{padding:18px 10px}}
+  </style>
+</head>
+<body>
+  <header class="head"><div class="eyebrow">Servicio de Salud Maule · Encuentro Institucional</div><h1>Una Red, una Dirección Compartida</h1><p>Planificación Estratégica y Rediseño de la Red de Salud Maule</p></header>
+  <main><section class="paper" aria-label="Afiche del encuentro institucional">
+      <img id="afiche" src="./afiche-original.webp" alt="Afiche original del Encuentro Institucional Una Red, una Dirección Compartida, con fechas, jornadas y lugar" decoding="async">
+      <div class="fallback" id="fallback">
+        <h2>Una Red, una Dirección Compartida</h2>
+        <p class="sub">Planificación Estratégica y Rediseño de la Red de Salud Maule</p>
+        <p>Conozcamos los avances de nuestra Red de Salud y cómo construiremos juntos su futuro.</p>
+        <div class="topic"><strong>¿Qué hemos logrado?</strong>Resultados y aprendizajes de la Planificación Estratégica 2024–2026.</div>
+        <div class="topic"><strong>¿Hacia dónde vamos?</strong>Avances del rediseño de la Red de Salud Maule, con visión al 2040.</div>
+        <div class="topic"><strong>¿Cómo avanzaremos?</strong>Planificación de la Red 2027–2030 y planes estratégicos hospitalarios.</div>
+        <p class="dates">Lunes 30 de noviembre y martes 1 de diciembre de 2026</p>
+        <p>Horarios por jornada: 11:00–13:00 o 15:00–17:00</p>
+        <p class="location">Caja de Compensación La Araucana · 2 Norte #740, Talca</p>
+        <p class="note">Participación en una jornada de dos horas. Coordina tu fecha y horario con tu jefatura. Máximo 100 cupos por jornada.</p>
+      </div>
+  </section>
+  <p class="foot">Servicio de Salud Maule · Planificación Estratégica · 2026</p></main>
+  <div class="fixed"><span>¿Ya viste de qué se trata?</span><a class="btn" href="https://docs.google.com/forms/d/1eS8p9fA02oWP5eqPnqXsVH_zRXl188SVy6ZbLfAak7I/viewform" target="_blank" rel="noopener noreferrer">¡Inscríbete aquí! ↗</a></div>
+  <script>
+    const im=document.getElementById('afiche'),f=document.getElementById('fallback');
+    im.addEventListener('error',()=>{im.hidden=true;f.style.display='block'});
+    if(im.complete && !im.naturalWidth){im.hidden=true;f.style.display='block'}
+  </script>
+</body>
+</html>
