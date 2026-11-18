@@ -98,6 +98,33 @@ body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stat
 @keyframes slidefill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:560px){.story-slide{min-height:440px;padding:26px 15px 12px}.story-title{font-size:clamp(37px,10vw,50px)}.story-title.smaller{font-size:clamp(34px,8vw,47px)}.micro-time{font-size:10px}.visual-big{height:120px}.story-logistics div{padding:13px;font-size:14px}.quick-topics>div{padding:10px}.quick-topics strong{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.story-progress span.active:before{animation:none!important;transform:scaleX(1)}}
+
+.roadmap{background:#f3faff;border:1px solid #d4e9f7;border-radius:24px;color:#103a76;overflow:hidden;margin:20px auto 16px}
+.roadmap-intro{text-align:center;padding:24px 18px 16px;background:linear-gradient(160deg,#ffffff,#def1ff)}
+.section-overline{font-size:10px;letter-spacing:.14em;font-weight:900;color:#0878cd}
+.roadmap-intro h2{font:900 clamp(24px,5.5vw,38px)/1.08 Outfit,sans-serif;letter-spacing:-.045em;margin:10px auto}
+.roadmap-intro>p{font-weight:900;color:#1379d1;margin:0 auto 10px;font-size:14px}
+.roadmap-lead{border-radius:14px;background:#caecfc;color:#124d90;font-weight:800;padding:13px 18px;line-height:1.4;font-size:14px}
+.roadmap-steps{padding:22px 19px 12px}
+.roadmap-step{display:grid;grid-template-columns:32px 54px 1fr;gap:9px;align-items:stretch;min-height:118px}
+.route-number{font:900 12px Outfit,sans-serif;color:var(--step);padding-top:14px}
+.route-line{display:flex;align-items:flex-start;justify-content:center;border-left:3px dashed var(--step);position:relative;margin-left:20px}
+.route-line span{font-size:25px;display:grid;place-items:center;width:49px;height:49px;background:color-mix(in srgb,var(--step) 13%,white);border:2px solid var(--step);border-radius:50%;position:absolute;left:-26px;top:3px;z-index:1}
+.roadmap-step:last-child .route-line{border-color:transparent}
+.route-content{padding:0 2px 20px 0}.route-content h3{font:900 clamp(20px,4.5vw,25px)/1.08 Outfit,sans-serif;color:var(--step);margin:3px 0 7px}
+.route-content p{color:#274e7b;font-size:14px;line-height:1.43;margin:0 0 6px}.route-content small{font-size:11px;color:#557ea4;font-weight:700}
+.route-network{height:135px;position:relative;background:linear-gradient(#d9f2ff,#b3e7fa 60%,#7fc9b4);overflow:hidden}
+.rmount{position:absolute;inset:17px 0 0;background:#4a9cc0;clip-path:polygon(0 100%,0 70%,10% 25%,23% 68%,35% 5%,49% 55%,65% 16%,80% 65%,92% 22%,100% 65%,100% 100%);opacity:.33}
+.route-buildings{position:absolute;bottom:0;left:5%;right:5%;display:flex;justify-content:space-between;align-items:end}
+.route-buildings span{width:45px;height:56px;background:#f5fcff;border:3px solid #63aad3;border-bottom:none;color:#238dc6;display:flex;justify-content:center;padding-top:5px;font-size:25px;border-radius:7px 7px 0 0;box-shadow:0 10px 15px #3285b944}
+.route-buildings span:nth-child(2),.route-buildings span:nth-child(4){height:85px;width:54px}
+.route-nodes{position:absolute;inset:10px 8% 68px;display:flex;justify-content:space-between;align-items:center;border-top:2px dashed #fff8;border-radius:50%}
+.route-nodes i{height:12px;width:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px #36c5ff77;animation:pulse 3s ease-in-out infinite}
+.roadmap-impact{background:linear-gradient(130deg,#0561b5,#104287);color:#fff;padding:19px;text-align:center}
+.roadmap-impact strong{font:900 clamp(20px,5vw,27px)/1.15 Outfit,sans-serif;display:block}
+.roadmap-impact p{font-size:14px;color:#d4edff;line-height:1.5;margin:9px 0 0}
+.roadmap-details{margin-top:14px}.roadmap-details strong{color:#064c98}
+@media(max-width:560px){.roadmap-steps{padding:20px 12px 9px}.roadmap-step{grid-template-columns:26px 46px 1fr;gap:7px}.route-line{margin-left:16px}.route-line span{width:43px;height:43px;left:-23px;font-size:22px}.route-content p{font-size:13px}.route-content h3{font-size:20px}.roadmap-intro{padding:20px 12px 13px}.route-network{height:113px}.route-buildings span{width:39px}.route-buildings span:nth-child(2),.route-buildings span:nth-child(4){width:45px}}
 </style>
 </head>
 <body>
@@ -117,32 +144,52 @@ body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stat
  <div class="story" id="story" aria-roledescription="presentación" aria-label="Encuentro Institucional en 30 segundos">
   <div class="story-progress" id="storyProgress" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
   <section class="story-slide current" data-scene="0" aria-label="1 de 4: el encuentro">
-   <span class="scene-tag">TENEMOS ALGO QUE CONTARTE</span>
+   <span class="scene-tag">ENCUENTRO INSTITUCIONAL · SSM</span>
    <h1 class="story-title">Una Red.<br><em>Una Dirección Compartida.</em></h1>
    <div class="hero-graphic visual-big" aria-hidden="true"><div class="sun"></div><div class="mountains"></div><div class="orbit"></div><div class="hospitals"><div class="hospital"></div><div class="hospital"></div><div class="hospital"></div></div></div>
-   <p class="story-copy">Nos encontraremos para compartir lo que hemos logrado y hacia dónde vamos.</p>
+   <p class="story-copy"><strong>Planificación Estratégica y Rediseño de la Red de Salud Maule.</strong><br>Conozcamos los avances de nuestra Red y cómo construiremos juntos su futuro.</p>
   </section>
   <section class="story-slide" data-scene="1" aria-label="2 de 4: cada persona importa" hidden>
    <span class="scene-tag">EL MENSAJE MÁS IMPORTANTE</span>
    <div class="people-visual" aria-hidden="true"><span>👩‍⚕️</span><span>👨‍💼</span><span>👩‍🔬</span><span>👷‍♀️</span><span>👨‍⚕️</span></div>
    <h2 class="story-title">Cada persona<br><em>cuenta.</em></h2>
-   <p class="story-copy"><strong>Tu trabajo, tu experiencia y tu participación importan.</strong> Una Red se construye con todas y todos.</p>
+   <p class="story-copy"><strong>Tu trabajo, tu experiencia y tu participación importan.</strong> Fortalecemos la comunicación interna, el alineamiento estratégico y la participación de los equipos de la Red.</p>
   </section>
   <section class="story-slide" data-scene="2" aria-label="3 de 4: qué conoceremos" hidden>
    <span class="scene-tag">EN UNA SOLA JORNADA</span>
-   <h2 class="story-title smaller">Tres preguntas.<br><em>Un mismo futuro.</em></h2>
+   <h2 class="story-title smaller">Nuestra hoja de ruta:<br><em>tres preguntas clave.</em></h2>
    <div class="quick-topics"><div><span>📈</span><strong>¿Qué logramos?</strong><small>Resultados 2024–2026</small></div><div><span>🧭</span><strong>¿Hacia dónde vamos?</strong><small>Rediseño de la Red al 2040</small></div><div><span>🤝</span><strong>¿Cómo avanzamos?</strong><small>Planificación 2027–2030</small></div></div>
   </section>
   <section class="story-slide" data-scene="3" aria-label="4 de 4: datos para participar" hidden>
    <span class="scene-tag">AHORA SÍ, EL DATO COMPLETO</span>
    <h2 class="story-title smaller">¡Te esperamos!</h2>
    <div class="story-logistics"><div>📆 <strong>30 de noviembre o 1 de diciembre</strong></div><div>🕚 <strong>11:00–13:00 o 15:00–17:00</strong></div><div>📍 <strong>La Araucana, 2 Norte #740, Talca</strong></div></div>
-   <p class="story-copy">Elige una jornada de 2 horas, coordinada con tu jefatura. <strong>Máximo 100 cupos por jornada.</strong></p>
+   <p class="story-copy">Inscripción y participación obligatorias en <strong>solo una jornada de 2 horas</strong>. Coordina tu horario con tu jefatura. <strong>Máximo 100 cupos por jornada.</strong></p>
   </section>
   <div class="story-controls"><button id="storyBack" type="button" aria-label="Volver a la pantalla anterior">←</button><span id="storyIndex" aria-live="polite">1 de 4</span><button id="storyNext" type="button">Siguiente →</button></div>
  </div>
  <section class="cta compact-cta"><div class="cta-kicker">PORQUE TU PARTICIPACIÓN IMPORTA</div><h2>El futuro de nuestra Red también se construye contigo.</h2><p>Participa en el Encuentro Institucional «Una Red, una Dirección Compartida».</p><a id="inscribirme" class="btn btn-main" href="https://docs.google.com/forms/d/1eS8p9fA02oWP5eqPnqXsVH_zRXl188SVy6ZbLfAak7I/viewform" target="_blank" rel="noopener noreferrer">¡Inscríbete aquí! ↗</a><p class="cta-note">Participación e inscripción obligatoria en una de las jornadas.</p></section>
- <details class="more-details"><summary>Ver todos los detalles del encuentro <span>⌄</span></summary><div class="more-content"><p><strong>¿Qué hemos logrado?</strong> Resultados y aprendizajes de la Planificación Estratégica 2024–2026.</p><p><strong>¿Hacia dónde vamos?</strong> Avances del Rediseño de la Red de Salud Maule, con visión al 2040.</p><p><strong>¿Cómo avanzaremos?</strong> Planificación de la Red 2027–2030 y planes estratégicos hospitalarios alineados al Rediseño.</p><p><strong>Fechas:</strong> lunes 30 de noviembre y martes 1 de diciembre de 2026, de 11:00 a 13:00 o de 15:00 a 17:00 horas.</p><p><strong>Lugar:</strong> Caja de Compensación La Araucana, 2 Norte #740, Talca. Coordina tu fecha y horario con tu jefatura. Máximo 100 cupos por jornada.</p></div></details>
+
+ <section class="roadmap" aria-labelledby="roadmap-title">
+  <div class="roadmap-intro"><span class="section-overline">PARA CONOCERLO CON MÁS DETALLE</span><h2 id="roadmap-title">Una Red, una Dirección Compartida</h2><p>Planificación Estratégica y Rediseño de la Red de Salud Maule</p><div class="roadmap-lead">Conozcamos los avances de nuestra Red de Salud y cómo construiremos juntos su futuro.</div></div>
+  <div class="roadmap-steps" aria-label="Hoja de ruta del encuentro">
+   <article class="roadmap-step" style="--step:#147cd8"><div class="route-number">01</div><div class="route-line"><span>📈</span></div><div class="route-content"><h3>¿Qué hemos logrado?</h3><p>Resultados y aprendizajes de la <strong>Planificación Estratégica 2024–2026</strong>.</p><small>Miramos el camino recorrido</small></div></article>
+   <article class="roadmap-step" style="--step:#099d9e"><div class="route-number">02</div><div class="route-line"><span>🧭</span></div><div class="route-content"><h3>¿Hacia dónde vamos?</h3><p>Avances del <strong>Rediseño de la Red de Salud Maule</strong>, con visión al <strong>2040</strong>.</p><small>Conocemos la dirección de futuro</small></div></article>
+   <article class="roadmap-step" style="--step:#6455c7"><div class="route-number">03</div><div class="route-line"><span>🤝</span></div><div class="route-content"><h3>¿Cómo avanzaremos?</h3><p>Planificación de la Red <strong>2027–2030</strong> y desarrollo de <strong>planes estratégicos hospitalarios alineados al Rediseño</strong>.</p><small>Construimos una visión compartida</small></div></article>
+  </div>
+  <div class="route-network" aria-hidden="true"><div class="rmount"></div><div class="route-buildings"><span>✚</span><span>✚</span><span>✚</span><span>✚</span><span>✚</span></div><div class="route-nodes"><i></i><i></i><i></i><i></i><i></i></div></div>
+  <div class="roadmap-impact"><strong>Una sola Red. Muchas personas que la hacen posible.</strong><p>Tu participación es importante para fortalecer la comunicación interna, el alineamiento estratégico y el trabajo conjunto de nuestros equipos.</p></div>
+ </section>
+ <section class="details roadmap-details" aria-label="Fechas, horarios y lugar del encuentro">
+  <h2>Elige tu jornada</h2>
+  <p>La participación y la inscripción son obligatorias en <strong>solo una de las cuatro jornadas</strong> de dos horas.</p>
+  <div class="days">
+   <div class="day"><strong class="when">📅 Lunes 30 de noviembre de 2026</strong><span>11:00 a 13:00 hrs<br><b>o</b> 15:00 a 17:00 hrs</span></div>
+   <div class="day"><strong class="when">📅 Martes 1 de diciembre de 2026</strong><span>11:00 a 13:00 hrs<br><b>o</b> 15:00 a 17:00 hrs</span></div>
+  </div>
+  <div class="place">📍 <b>Caja de Compensación La Araucana</b><br>2 Norte #740, Talca</div>
+  <p class="requirements"><strong>Coordina tu fecha y horario con tu jefatura.</strong> Máximo 100 cupos por jornada.</p>
+ </section>
  <div class="social"><span id="visitCount" class="number">—</span><span class="label">visitas registradas a esta sorpresa 👀</span></div>
  <div class="actions"><button class="btn btn-secondary" type="button" id="share">↗ Compartir el chisme</button><button class="btn btn-secondary" type="button" id="volver">Volver al comienzo ↑</button></div>
  <footer class="foot"><p>Encuentro Institucional · Dirección del Servicio de Salud Maule · 2026</p><p>El contador registra aperturas de la página, no personas identificadas ni inscripciones confirmadas.</p></footer>
