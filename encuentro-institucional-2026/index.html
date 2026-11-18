@@ -131,13 +131,13 @@ body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stat
 <script>
 (function(){
 'use strict';
-var ROOT='https://counterapi.com/api/ssmaule-encuentro-2026-chisme/',
-    KEY='/red-compartida-nov2026',
+var ROOT='https://countapi.mileshilliard.com/api/v1/',
+    KEY='ssmaule_chisme_nov2026_public_72d8f1_',
     kinds=['visit','reveal','registration'],
     values={visit:null,reveal:null,registration:null},
     control=document.getElementById('destapar');
 function once(k){try{var tag='ssm_chisme_v2_'+k;if(sessionStorage.getItem(tag))return false;sessionStorage.setItem(tag,'1');return true}catch(e){return true}}
-function endpoint(kind,only){return ROOT+kind+KEY+(only?'?readOnly=true':'?readOnly=false')}
+function endpoint(kind,only){return ROOT+(only?'get/':'hit/')+KEY+kind}
 async function count(kind,only){
  try{
   var res=await fetch(endpoint(kind,only),{cache:'no-store',mode:'cors',referrerPolicy:'no-referrer'});
