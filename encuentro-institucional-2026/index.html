@@ -74,6 +74,30 @@ body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stat
 @keyframes pulse{50%{box-shadow:0 0 0 10px #64edff05}}@keyframes float{50%{transform:translateY(-15px) rotate(40deg)}}@keyframes enter{to{opacity:1;transform:translateY(0)}}@keyframes orbit{50%{transform:translateY(-5px)}}
 @media(max-width:560px){.cards{grid-template-columns:1fr}.card{min-height:0;padding:16px 18px}.card h3{margin:10px 0 5px}.hero-graphic{height:137px}.headline{margin:30px auto 42px}.headline .bottom{border-radius:12px}.intro{min-height:100svh}.days{gap:7px}.day{padding:12px 10px}.details{padding:19px}.statgrid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Experiencia visual breve, responsive y accesible */
+.micro-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:23px 0 15px}
+.micro-time{font-size:11px;font-weight:800;color:#b9dcfa}
+.story{background:linear-gradient(160deg,#0a418c 0%,#0b2757 50%,#0b1740 100%);border:1px solid #5cb6f544;border-radius:27px;overflow:hidden;position:relative;box-shadow:0 20px 60px #0005}
+.story-progress{display:flex;gap:6px;margin:16px 17px 0}.story-progress span{height:5px;flex:1;background:#ffffff42;border-radius:9px;position:relative;overflow:hidden}.story-progress span.done{background:var(--yellow)}.story-progress span.active{background:#ffffff8a}.story-progress span.active:before{content:"";position:absolute;inset:0;background:var(--yellow);transform-origin:left;animation:slidefill 5.5s linear forwards}
+.story-slide{min-height:410px;padding:31px 25px 10px;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px}
+.story-slide[hidden]{display:none!important}.story-slide.current{animation:sceneEnter .5s ease both}
+.scene-tag{color:#9de9f5;font-size:11px;letter-spacing:.14em;font-weight:900}
+.story-title{font:900 clamp(38px,9vw,70px)/.98 Outfit,Arial,sans-serif;letter-spacing:-.052em;margin:5px 0 0;text-wrap:balance}
+.story-title em{font-style:normal;color:#ffde6c}.story-title.smaller{font-size:clamp(34px,7vw,54px)}
+.story-copy{font-size:clamp(15px,3.8vw,18px);line-height:1.42;color:#e0efff;margin:0;max-width:500px;text-wrap:pretty}.story-copy strong{color:#fff}
+.visual-big{height:125px;width:min(100%,400px);margin:2px auto 0;flex-shrink:0;box-shadow:none}.visual-big .hospital{transform:scale(.8);transform-origin:bottom}
+.people-visual{display:flex;align-items:center;justify-content:center;gap:clamp(4px,2vw,15px);width:100%;font-size:clamp(37px,9vw,69px);padding:16px 4px}.people-visual span{display:inline-block;animation:peopleFloat 3s ease-in-out infinite;filter:drop-shadow(0 8px 12px #0004)}.people-visual span:nth-child(2){animation-delay:.3s}.people-visual span:nth-child(3){animation-delay:.6s}.people-visual span:nth-child(4){animation-delay:.9s}.people-visual span:nth-child(5){animation-delay:1.2s}
+.quick-topics{width:100%;display:grid;gap:9px;max-width:570px}.quick-topics>div{display:grid;grid-template-columns:35px 1fr;column-gap:8px;text-align:left;align-items:center;padding:12px 14px;border-radius:13px;background:#ffffff18;border:1px solid #ffffff25}.quick-topics span{grid-row:span 2;font-size:27px}.quick-topics strong{font-size:16px}.quick-topics small{font-size:12px;color:#c5d9ff}
+.story-logistics{display:grid;gap:10px;width:min(100%,490px)}.story-logistics div{background:#ffffff16;border:1px solid #ffffff25;border-radius:14px;padding:15px;font-size:16px;line-height:1.4;text-align:left}
+.story-controls{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 17px;gap:10px;border-top:1px solid #ffffff12}.story-controls button{border:1px solid #ffffff50;border-radius:13px;background:#ffffff14;color:#fff;min-height:44px;padding:10px 16px;font-weight:800;font-size:14px}.story-controls button:disabled{opacity:.25;cursor:default}.story-controls span{font-size:12px;font-weight:800;color:#bcd9fb}
+.compact-cta{margin-top:15px;margin-bottom:16px;padding:27px 19px}.compact-cta h2{font-size:clamp(24px,5vw,38px);margin:10px 0}.cta-kicker{font-size:11px;letter-spacing:.1em;font-weight:900;color:#b4eaff}.cta-note{font-size:11px!important;margin:14px 0 0!important}
+.more-details{background:#eaf6ff;color:#132e57;border-radius:17px;margin-bottom:17px;overflow:hidden}.more-details summary{cursor:pointer;font-weight:900;padding:18px;display:flex;justify-content:space-between;gap:8px}.more-content{padding:0 18px 13px;font-size:13px;line-height:1.6;color:#3c5272}.more-content strong{color:#0b4d92}
+@keyframes sceneEnter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes peopleFloat{50%{transform:translateY(-10px)}}
+@keyframes slidefill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:560px){.story-slide{min-height:440px;padding:26px 15px 12px}.story-title{font-size:clamp(37px,10vw,50px)}.story-title.smaller{font-size:clamp(34px,8vw,47px)}.micro-time{font-size:10px}.visual-big{height:120px}.story-logistics div{padding:13px;font-size:14px}.quick-topics>div{padding:10px}.quick-topics strong{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.story-progress span.active:before{animation:none!important;transform:scaleX(1)}}
 </style>
 </head>
 <body>
@@ -89,37 +113,40 @@ body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stat
 </main>
 <main id="revelacion" aria-live="polite">
 <div class="container">
- <header class="reveal-head"><span class="sticker">¡Se destapó! ✨</span>
-  <div class="pretitle">Y resultó ser algo que nos reúne…</div>
-  <h1 class="reveal-title">Una Red,<br>una <em>Dirección Compartida</em></h1>
-  <p class="reveal-sub">Un encuentro para mirar lo que hemos construido y conversar sobre el camino que viene para nuestra Red de Salud Maule.</p>
-  <div class="hero-graphic" aria-hidden="true"><div class="sun"></div><div class="mountains"></div><div class="orbit"></div><div class="hospitals"><div class="hospital"></div><div class="hospital"></div><div class="hospital"></div></div></div>
-  <p class="scrolldown">Desliza y conoce todos los detalles ↓</p>
- </header>
- <div class="section-label">Lo que vamos a compartir</div>
- <section class="cards" aria-label="Temas del encuentro">
-  <article class="card"><span class="num">01</span><h3>¿Qué logramos?</h3><p>Resultados y aprendizajes de la Planificación Estratégica 2024–2026.</p></article>
-  <article class="card"><span class="num">02</span><h3>¿Hacia dónde vamos?</h3><p>Avances del Rediseño de la Red de Salud Maule, con visión al 2040.</p></article>
-  <article class="card"><span class="num">03</span><h3>¿Cómo avanzaremos?</h3><p>Planificación 2027–2030 y planes estratégicos hospitalarios alineados al Rediseño.</p></article>
- </section>
- <section class="details" aria-label="Fechas, horarios y lugar">
-  <h2>¿Cuándo nos vemos?</h2><p>Elige una de las cuatro jornadas de dos horas.</p>
-  <div class="days">
-   <div class="day"><strong class="when">📅 Lunes 30 de noviembre</strong><span>11:00 a 13:00 hrs<br><b>o</b> 15:00 a 17:00 hrs</span></div>
-   <div class="day"><strong class="when">📅 Martes 1 de diciembre</strong><span>11:00 a 13:00 hrs<br><b>o</b> 15:00 a 17:00 hrs</span></div>
-  </div>
-  <div class="place">📍 <b>Caja de Compensación La Araucana</b><br>2 Norte #740, Talca.</div>
-  <p class="requirements">Participación e inscripción obligatoria en una jornada. Coordina tu fecha y horario con tu jefatura. Máximo 100 cupos por jornada.</p>
- </section>
- <section class="cta"><h2>Ahora que sabes el chisme…<br>¡que no te lo cuenten!</h2>
-  <p>Elige tu jornada y asegura tu participación.</p>
-  <a id="inscribirme" class="btn btn-main" href="https://docs.google.com/forms/d/1eS8p9fA02oWP5eqPnqXsVH_zRXl188SVy6ZbLfAak7I/viewform" target="_blank" rel="noopener noreferrer">¡Inscríbete aquí! ↗</a>
- </section>
+ <div class="micro-heading"><span class="sticker">¡Se destapó! ✨</span><span class="micro-time">En menos de 30 segundos 👀</span></div>
+ <div class="story" id="story" aria-roledescription="presentación" aria-label="Encuentro Institucional en 30 segundos">
+  <div class="story-progress" id="storyProgress" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
+  <section class="story-slide current" data-scene="0" aria-label="1 de 4: el encuentro">
+   <span class="scene-tag">TENEMOS ALGO QUE CONTARTE</span>
+   <h1 class="story-title">Una Red.<br><em>Una Dirección Compartida.</em></h1>
+   <div class="hero-graphic visual-big" aria-hidden="true"><div class="sun"></div><div class="mountains"></div><div class="orbit"></div><div class="hospitals"><div class="hospital"></div><div class="hospital"></div><div class="hospital"></div></div></div>
+   <p class="story-copy">Nos encontraremos para compartir lo que hemos logrado y hacia dónde vamos.</p>
+  </section>
+  <section class="story-slide" data-scene="1" aria-label="2 de 4: cada persona importa" hidden>
+   <span class="scene-tag">EL MENSAJE MÁS IMPORTANTE</span>
+   <div class="people-visual" aria-hidden="true"><span>👩‍⚕️</span><span>👨‍💼</span><span>👩‍🔬</span><span>👷‍♀️</span><span>👨‍⚕️</span></div>
+   <h2 class="story-title">Cada persona<br><em>cuenta.</em></h2>
+   <p class="story-copy"><strong>Tu trabajo, tu experiencia y tu participación importan.</strong> Una Red se construye con todas y todos.</p>
+  </section>
+  <section class="story-slide" data-scene="2" aria-label="3 de 4: qué conoceremos" hidden>
+   <span class="scene-tag">EN UNA SOLA JORNADA</span>
+   <h2 class="story-title smaller">Tres preguntas.<br><em>Un mismo futuro.</em></h2>
+   <div class="quick-topics"><div><span>📈</span><strong>¿Qué logramos?</strong><small>Resultados 2024–2026</small></div><div><span>🧭</span><strong>¿Hacia dónde vamos?</strong><small>Rediseño de la Red al 2040</small></div><div><span>🤝</span><strong>¿Cómo avanzamos?</strong><small>Planificación 2027–2030</small></div></div>
+  </section>
+  <section class="story-slide" data-scene="3" aria-label="4 de 4: datos para participar" hidden>
+   <span class="scene-tag">AHORA SÍ, EL DATO COMPLETO</span>
+   <h2 class="story-title smaller">¡Te esperamos!</h2>
+   <div class="story-logistics"><div>📆 <strong>30 de noviembre o 1 de diciembre</strong></div><div>🕚 <strong>11:00–13:00 o 15:00–17:00</strong></div><div>📍 <strong>La Araucana, 2 Norte #740, Talca</strong></div></div>
+   <p class="story-copy">Elige una jornada de 2 horas, coordinada con tu jefatura. <strong>Máximo 100 cupos por jornada.</strong></p>
+  </section>
+  <div class="story-controls"><button id="storyBack" type="button" aria-label="Volver a la pantalla anterior">←</button><span id="storyIndex" aria-live="polite">1 de 4</span><button id="storyNext" type="button">Siguiente →</button></div>
+ </div>
+ <section class="cta compact-cta"><div class="cta-kicker">PORQUE TU PARTICIPACIÓN IMPORTA</div><h2>El futuro de nuestra Red también se construye contigo.</h2><p>Participa en el Encuentro Institucional «Una Red, una Dirección Compartida».</p><a id="inscribirme" class="btn btn-main" href="https://docs.google.com/forms/d/1eS8p9fA02oWP5eqPnqXsVH_zRXl188SVy6ZbLfAak7I/viewform" target="_blank" rel="noopener noreferrer">¡Inscríbete aquí! ↗</a><p class="cta-note">Participación e inscripción obligatoria en una de las jornadas.</p></section>
+ <details class="more-details"><summary>Ver todos los detalles del encuentro <span>⌄</span></summary><div class="more-content"><p><strong>¿Qué hemos logrado?</strong> Resultados y aprendizajes de la Planificación Estratégica 2024–2026.</p><p><strong>¿Hacia dónde vamos?</strong> Avances del Rediseño de la Red de Salud Maule, con visión al 2040.</p><p><strong>¿Cómo avanzaremos?</strong> Planificación de la Red 2027–2030 y planes estratégicos hospitalarios alineados al Rediseño.</p><p><strong>Fechas:</strong> lunes 30 de noviembre y martes 1 de diciembre de 2026, de 11:00 a 13:00 o de 15:00 a 17:00 horas.</p><p><strong>Lugar:</strong> Caja de Compensación La Araucana, 2 Norte #740, Talca. Coordina tu fecha y horario con tu jefatura. Máximo 100 cupos por jornada.</p></div></details>
  <div class="social"><span id="visitCount" class="number">—</span><span class="label">visitas registradas a esta sorpresa 👀</span></div>
  <div class="actions"><button class="btn btn-secondary" type="button" id="share">↗ Compartir el chisme</button><button class="btn btn-secondary" type="button" id="volver">Volver al comienzo ↑</button></div>
  <footer class="foot"><p>Encuentro Institucional · Dirección del Servicio de Salud Maule · 2026</p><p>El contador registra aperturas de la página, no personas identificadas ni inscripciones confirmadas.</p></footer>
-</div>
-</main>
+</div></main>
 <section class="stats" id="stats" aria-label="Métricas de la campaña"><div class="container">
  <span class="eyebrow">Campaña · Tenemos chisme</span><h1>Así va la curiosidad 👀</h1>
  <p>Resumen de eventos agregados. No recopila nombres ni correos electrónicos.</p>
@@ -151,14 +178,36 @@ function update(kind,v){
  (ids[kind]||[]).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=new Intl.NumberFormat('es-CL').format(v)});
 }
 function reveal(track){
+ showScene(0);
  document.body.classList.add('revealed');
  control.setAttribute('aria-expanded','true');
  document.title='Una Red, una Dirección Compartida · SSM';
  window.scrollTo({top:0,behavior:'instant'});
  if(track)count('reveal',!once('reveal'));
 }
+
+var sceneIndex=0,sceneTimer=null,storySlides=Array.from(document.querySelectorAll('.story-slide')),progressItems=Array.from(document.querySelectorAll('#storyProgress span'));
+function showScene(idx){
+ sceneIndex=Math.max(0,Math.min(storySlides.length-1,idx));
+ storySlides.forEach(function(slide,i){slide.hidden=i!==sceneIndex;slide.classList.toggle('current',i===sceneIndex)});
+ progressItems.forEach(function(item,i){item.className=i<sceneIndex?'done':i===sceneIndex?'active':'';if(i===sceneIndex){item.style.animation='none';void item.offsetWidth;item.style.animation=''}});
+ document.getElementById('storyIndex').textContent=(sceneIndex+1)+' de '+storySlides.length;
+ document.getElementById('storyBack').disabled=sceneIndex===0;
+ document.getElementById('storyNext').textContent=sceneIndex===storySlides.length-1?'Inscribirme ↓':'Siguiente →';
+ clearTimeout(sceneTimer);
+ if(sceneIndex<storySlides.length-1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  sceneTimer=setTimeout(function(){showScene(sceneIndex+1)},5500);
+ }
+}
+document.getElementById('storyNext').addEventListener('click',function(){
+ if(sceneIndex===storySlides.length-1) document.querySelector('.compact-cta').scrollIntoView({behavior:'smooth',block:'center'});
+ else showScene(sceneIndex+1)
+});
+document.getElementById('storyBack').addEventListener('click',function(){showScene(sceneIndex-1)});
+document.addEventListener('visibilitychange',function(){if(document.hidden)clearTimeout(sceneTimer);else if(document.body.classList.contains('revealed'))showScene(sceneIndex)});
+
 control.addEventListener('click',function(){reveal(true)});
-document.getElementById('volver').addEventListener('click',function(){document.body.classList.remove('revealed');window.scrollTo({top:0,behavior:'smooth'})});
+document.getElementById('volver').addEventListener('click',function(){document.body.classList.remove('revealed');clearTimeout(sceneTimer);window.scrollTo({top:0,behavior:'smooth'})});
 document.getElementById('inscribirme').addEventListener('click',function(){count('registration',false)});
 document.getElementById('share').addEventListener('click',async function(){
  var url=location.origin+location.pathname,button=this;
