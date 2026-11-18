@@ -84,7 +84,7 @@ body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stat
   <h1 class="headline"><span class="top">¡Tenemos</span><span class="bottom">chisme!</span></h1>
   <p class="lead">Y como todo buen chisme… <strong>se cuenta completo.</strong> 👀</p>
   <button class="btn btn-main" id="destapar" type="button" aria-controls="revelacion" aria-expanded="false">👀 Ya, cuenta el chisme <span aria-hidden="true">↗</span></button>
-  <p class="tiny">Tranquilidad: este chisme sí se puede compartir.</p>
+  <p class="tiny">Tranquilidad: este chisme sí se puede compartir.</p><p class="tiny"><strong id="introCount" style="color:#ffdc52;font-size:18px">—</strong> visitas a este chisme 👀</p>
  </div>
 </main>
 <main id="revelacion" aria-live="polite">
@@ -147,7 +147,7 @@ async function count(kind,only){
  }catch(e){/* No publicar números no verificados */ }
 }
 function update(kind,v){
- var ids={visit:['visitCount','s-visitas'],reveal:['s-reveal'],registration:['s-cta']};
+ var ids={visit:['visitCount','introCount','s-visitas'],reveal:['s-reveal'],registration:['s-cta']};
  (ids[kind]||[]).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=new Intl.NumberFormat('es-CL').format(v)});
 }
 function reveal(track){
