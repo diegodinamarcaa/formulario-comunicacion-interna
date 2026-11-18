@@ -1,59 +1,184 @@
 <!doctype html>
 <html lang="es-CL">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0755a1">
-  <meta name="description" content="Encuentro Institucional Servicio de Salud Maule — Una Red, una Dirección Compartida. Conoce el encuentro e inscríbete.">
-  <title>Una Red, una Dirección Compartida | Servicio de Salud Maule</title>
-  <style>
-    :root{font-family:Arial,Helvetica,sans-serif;color:#0b2a5b;background:#e7f2fc;line-height:1.4}
-    *{box-sizing:border-box}body{margin:0}
-    .head{background:linear-gradient(125deg,#073776,#0876c7);padding:25px 18px;text-align:center;color:#fff}
-    .head .eyebrow{font-size:12px;letter-spacing:.15em;font-weight:800;text-transform:uppercase;opacity:.92}
-    h1{font-size:clamp(24px,5vw,42px);letter-spacing:-.035em;line-height:1.1;margin:8px auto;max-width:900px}
-    .head p{margin:5px auto 0;font-size:14px;max-width:600px;color:#d2eeff}
-    main{max-width:760px;margin:18px auto 120px;padding:0 12px}
-    .paper{border-radius:14px;background:white;padding:8px;box-shadow:0 14px 35px #0b47812b}
-    #afiche{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:9px}
-    .fallback{display:none;text-align:center;padding:36px 22px}
-    .fallback h2{font-size:clamp(24px,5vw,35px);line-height:1.15;color:#064d99}
-    .fallback .sub{font-size:19px;color:#0871c7;font-weight:bold}
-    .topic{background:#eef7ff;border-radius:12px;padding:15px;margin:16px auto;text-align:left;max-width:520px}
-    .topic strong{display:block;margin-bottom:4px;color:#0757a2}
-    .dates{font-size:18px;font-weight:bold;margin:16px auto 5px}
-    .note{font-size:14px;color:#4a5c75}
-    .location{margin-top:10px;font-weight:700}
-    .foot{font-size:13px;color:#45607e;text-align:center;margin:16px auto}
-    .fixed{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(110deg,#064787,#087ac3);padding:12px max(12px,env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom));box-shadow:0 -6px 22px #06356838;display:flex;align-items:center;gap:12px;justify-content:center;z-index:4;flex-wrap:wrap}
-    .fixed span{color:white;font-weight:700;font-size:13px}
-    a.btn{background:#ffcf35;color:#092e5d;border-radius:999px;text-decoration:none;font-weight:900;padding:13px 34px;display:inline-block;box-shadow:0 3px 0 #cb9b1d}
-    a.btn:hover,a.btn:focus-visible{background:#ffe37c}
-    @media(max-width:520px){main{margin:10px auto 130px;padding:0 8px}.paper{padding:5px;border-radius:10px}.fixed{flex-direction:column;gap:6px}.fixed span{font-size:12px}.fallback{padding:18px 10px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071b43">
+<meta name="description" content="¡Tenemos chisme! Descubre la sorpresa del encuentro institucional de la Dirección del Servicio de Salud Maule.">
+<title>¡Tenemos chisme! 👀 · SSMaule</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap');
+:root{--navy:#071c42;--blue:#0875d5;--cyan:#48dcfb;--pink:#ff3c6f;--yellow:#ffdc52;--white:#fff;--ink:#11254c;--muted:#567092;font-family:'DM Sans',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#071c42;color:var(--white);overflow-x:hidden}
+button,a{-webkit-tap-highlight-color:transparent}button{font-family:inherit;cursor:pointer}a{color:inherit}.container{width:min(100% - 34px,740px);margin:0 auto}
+.bg{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 10% 12%,#1e5bba88,transparent 40%),radial-gradient(ellipse at 92% 58%,#42226a8c,transparent 42%),linear-gradient(145deg,#0a2855,#07152f 76%);z-index:-2}
+.bg:after{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff5 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#0005,transparent)}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid #ffffff40;border-radius:99px;background:#ffffff12;padding:9px 15px;color:#daeaff;font-size:11px;letter-spacing:.12em;font-weight:800;text-transform:uppercase}
+.pulse{width:7px;height:7px;border-radius:50%;background:#64edff;box-shadow:0 0 0 5px #64edff26;animation:pulse 2.6s ease-in-out infinite}
+.intro{min-height:100svh;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:44px 0 64px}
+.headline{font-family:Outfit,Arial,sans-serif;font-size:clamp(72px,17vw,145px);font-weight:900;letter-spacing:-.085em;line-height:.76;margin:31px auto 36px}
+.headline .top{display:block;color:#fff;transform:rotate(-4deg);text-shadow:0 8px 30px #07112644}
+.headline .bottom{display:inline-block;background:var(--pink);padding:5px 28px 12px;margin-top:10px;border-radius:21px;transform:rotate(-3deg);box-shadow:13px 14px 0 #ff3c6f38}
+.headline .bottom:after{content:"";height:9px;border-radius:30px;width:68%;position:absolute;bottom:-18px;left:16%;background:var(--yellow);transform:rotate(1deg)}
+.lead{font-size:clamp(17px,4.5vw,23px);color:#dfebff;max-width:560px;margin:0 auto 26px;line-height:1.45}
+.lead strong{color:white}.spark{position:absolute;color:var(--yellow);font-size:36px;transform:rotate(-18deg)}
+.spark.one{left:4%;top:21%}.spark.two{right:6%;top:25%;color:#ff7799}.spark.three{right:8%;bottom:20%;font-size:22px;color:#5ee3fd}
+.btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;text-decoration:none;border-radius:18px;font-size:17px;line-height:1.1;font-weight:900;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(1px)}
+.btn-main{color:#0b2451;background:var(--yellow);box-shadow:0 8px 0 #bd8d11,0 14px 36px #0004}
+.btn-main:focus-visible,.btn-secondary:focus-visible{outline:4px solid #fff;outline-offset:4px}
+.tiny{font-size:12px;color:#97b8dc;margin:23px 0 0}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;display:block;width:10px;height:24px;border-radius:3px;opacity:.45;animation:float 5s ease-in-out infinite}
+.confetti i:nth-child(1){left:9%;top:12%;background:#4ddcf2;transform:rotate(18deg)}.confetti i:nth-child(2){right:15%;top:12%;background:#ffdc52;animation-delay:.6s}.confetti i:nth-child(3){left:19%;bottom:12%;background:#ff4d77;animation-delay:1.2s}.confetti i:nth-child(4){right:24%;bottom:11%;background:#43e7bd;animation-delay:1.9s}
+#revelacion{display:none;opacity:0;transform:translateY(16px)}
+body.revealed #intro{display:none}
+body.revealed #revelacion{display:block;animation:enter .7s ease forwards}
+.reveal-head{padding:44px 0 26px;text-align:center}
+.sticker{display:inline-block;background:var(--yellow);color:#0b2551;padding:7px 15px;border-radius:10px;font-weight:900;font-size:12px;letter-spacing:.06em;transform:rotate(-3deg)}
+.pretitle{margin:24px 0 4px;font-size:16px;color:#a8d3fe;font-weight:700}
+.reveal-title{font:900 clamp(35px,8vw,67px)/.99 Outfit,Arial,sans-serif;letter-spacing:-.06em;margin:14px auto 14px;max-width:720px}
+.reveal-title em{font-style:normal;color:#5bdffb}
+.reveal-sub{font-size:clamp(15px,4vw,19px);color:#c7ddf5;line-height:1.5;max-width:590px;margin:0 auto 16px}
+.scrolldown{font-size:12px;color:#97bfdc;text-align:center;margin-top:20px}
+.hero-graphic{height:166px;background:linear-gradient(120deg,#0d5abb,#18a1d9 55%,#aeeeff);position:relative;border-radius:25px;overflow:hidden;margin:22px auto 12px;border:1px solid #ffffff33;box-shadow:0 15px 30px #0003}
+.sun{position:absolute;width:110px;height:110px;right:20px;top:-54px;border-radius:100%;background:#fce98b66;box-shadow:0 0 80px #e0f8ff77}
+.mountains{position:absolute;bottom:0;height:82px;left:0;right:0;background:#0c4d92;clip-path:polygon(0 100%,0 61%,9% 34%,18% 66%,28% 11%,41% 59%,52% 20%,65% 65%,79% 12%,89% 60%,100% 28%,100% 100%);opacity:.55}
+.hospitals{position:absolute;bottom:0;left:4%;right:4%;display:flex;justify-content:space-around;align-items:flex-end}.hospital{background:#e9faff;border:3px solid #a5dcfa;border-bottom:0;border-radius:8px 8px 0 0;width:70px;height:70px;position:relative;box-shadow:0 8px 20px #034d8f55}.hospital:nth-child(2){height:95px;width:85px}.hospital:nth-child(3){height:60px}.hospital:before{content:"✚";position:absolute;left:50%;top:4px;transform:translateX(-50%);font-size:28px;color:#1989d5}.hospital:after{content:"▦ ▦";position:absolute;color:#3aabdf;left:50%;bottom:9px;transform:translateX(-50%);white-space:nowrap}
+.orbit{position:absolute;left:8%;right:8%;bottom:67px;height:46px;border-top:2px dashed #d9fbffbb;border-radius:50%;animation:orbit 6s ease-in-out infinite}
+.section-label{text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:900;color:#8adcf3;text-align:center;margin:30px auto 14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:0 auto 22px}
+.card{border-radius:18px;padding:21px 16px 19px;background:#f6fbff;color:var(--ink);min-height:205px;box-shadow:0 10px 20px #0002}.card:nth-child(2){background:#eafefa}.card:nth-child(3){background:#eeeaff}
+.card .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:11px;background:#0c77d9;color:white;font:900 14px Outfit,sans-serif}.card:nth-child(2) .num{background:#0a9994}.card:nth-child(3) .num{background:#6552c6}
+.card h3{font:800 20px/1.08 Outfit,sans-serif;letter-spacing:-.025em;margin:15px 0 8px;color:#093d7f}
+.card p{font-size:13px;line-height:1.4;margin:0;color:#375d8d}
+.details{background:#fff;color:var(--ink);border-radius:24px;padding:25px;box-shadow:0 20px 40px #0004;margin:8px auto 30px}
+.details h2{font:900 28px/1.1 Outfit,sans-serif;letter-spacing:-.03em;margin:0 0 7px}.details>p{margin:0 0 18px;color:#536787;font-size:14px}
+.days{display:grid;grid-template-columns:1fr 1fr;gap:12px}.day{padding:16px 12px;border-radius:14px;background:#edf6ff;border:1px solid #d3e7fa}
+.day:nth-child(2){background:#ecfaf7;border-color:#cef1e9}
+.day .when{font-size:13px;font-weight:900;color:#0759a0;display:block;margin-bottom:8px}.day span{font-size:13px;line-height:1.5;color:#245c94}
+.place{margin-top:14px;padding:14px;border-radius:12px;background:#fff6d6;font-size:13px;color:#53451a}
+.place b{font-weight:900}
+.requirements{font-size:12px!important;line-height:1.5;color:#50617e!important;margin:15px 0 0!important}
+.cta{background:linear-gradient(135deg,#006cb9,#073d8e);border:1px solid #4596db;color:white;border-radius:23px;padding:25px 23px;text-align:center;margin:0 auto 25px;position:relative;overflow:hidden}
+.cta:before{content:"";width:170px;height:170px;border:18px solid #ffffff10;border-radius:50%;position:absolute;right:-72px;top:-90px}.cta h2{font:900 clamp(26px,6vw,40px)/1.05 Outfit,sans-serif;letter-spacing:-.04em;margin:0 0 7px}.cta p{font-size:14px;color:#d8ecfe;margin:0 0 19px}
+.social{margin:0 auto 25px;text-align:center;padding:19px 14px;border:1px solid #ffffff35;background:#ffffff12;border-radius:18px}
+.social .number{font:900 37px Outfit,sans-serif;color:#ffdf68;display:block;line-height:1.1;min-height:42px}
+.social .label{font-size:12px;color:#c6d9f4}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-secondary{border:1px solid #ffffff55;color:white;background:#ffffff12;padding:13px 19px;font-size:14px}
+.foot{text-align:center;color:#95b2d5;font-size:11px;padding-bottom:22px}.foot a{color:#b9d8fa}
+.stats{display:none;min-height:100vh;align-items:center;padding:40px 0}.stats h1{font:900 36px Outfit,sans-serif;margin-bottom:10px}.stats p{color:#b8cfe5}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:19px;border:1px solid #41618d;border-radius:18px;background:#142e58}.stat .n{font:900 30px Outfit,sans-serif;color:#ffe17b}.stat .l{font-size:12px;color:#c7d6e8}
+.stats .btn{margin-top:22px}.stats .small{font-size:12px;color:#91abc8;margin:20px 0}
+body.panel #intro,body.panel #revelacion{display:none!important}body.panel .stats{display:flex}
+@keyframes pulse{50%{box-shadow:0 0 0 10px #64edff05}}@keyframes float{50%{transform:translateY(-15px) rotate(40deg)}}@keyframes enter{to{opacity:1;transform:translateY(0)}}@keyframes orbit{50%{transform:translateY(-5px)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}.card{min-height:0;padding:16px 18px}.card h3{margin:10px 0 5px}.hero-graphic{height:137px}.headline{margin:30px auto 42px}.headline .bottom{border-radius:12px}.intro{min-height:100svh}.days{gap:7px}.day{padding:12px 10px}.details{padding:19px}.statgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <header class="head"><div class="eyebrow">Servicio de Salud Maule · Encuentro Institucional</div><h1>Una Red, una Dirección Compartida</h1><p>Planificación Estratégica y Rediseño de la Red de Salud Maule</p></header>
-  <main><section class="paper" aria-label="Afiche del encuentro institucional">
-      <img id="afiche" src="./afiche-original.webp" alt="Afiche original del Encuentro Institucional Una Red, una Dirección Compartida, con fechas, jornadas y lugar" decoding="async">
-      <div class="fallback" id="fallback">
-        <h2>Una Red, una Dirección Compartida</h2>
-        <p class="sub">Planificación Estratégica y Rediseño de la Red de Salud Maule</p>
-        <p>Conozcamos los avances de nuestra Red de Salud y cómo construiremos juntos su futuro.</p>
-        <div class="topic"><strong>¿Qué hemos logrado?</strong>Resultados y aprendizajes de la Planificación Estratégica 2024–2026.</div>
-        <div class="topic"><strong>¿Hacia dónde vamos?</strong>Avances del rediseño de la Red de Salud Maule, con visión al 2040.</div>
-        <div class="topic"><strong>¿Cómo avanzaremos?</strong>Planificación de la Red 2027–2030 y planes estratégicos hospitalarios.</div>
-        <p class="dates">Lunes 30 de noviembre y martes 1 de diciembre de 2026</p>
-        <p>Horarios por jornada: 11:00–13:00 o 15:00–17:00</p>
-        <p class="location">Caja de Compensación La Araucana · 2 Norte #740, Talca</p>
-        <p class="note">Participación en una jornada de dos horas. Coordina tu fecha y horario con tu jefatura. Máximo 100 cupos por jornada.</p>
-      </div>
-  </section>
-  <p class="foot">Servicio de Salud Maule · Planificación Estratégica · 2026</p></main>
-  <div class="fixed"><span>¿Ya viste de qué se trata?</span><a class="btn" href="https://docs.google.com/forms/d/1eS8p9fA02oWP5eqPnqXsVH_zRXl188SVy6ZbLfAak7I/viewform" target="_blank" rel="noopener noreferrer">¡Inscríbete aquí! ↗</a></div>
-  <script>
-    const im=document.getElementById('afiche'),f=document.getElementById('fallback');
-    im.addEventListener('error',()=>{im.hidden=true;f.style.display='block'});
-    if(im.complete && !im.naturalWidth){im.hidden=true;f.style.display='block'}
-  </script>
-</body>
-</html>
+<div class="bg" aria-hidden="true"></div>
+<main id="intro" class="intro"><div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+ <span class="spark one" aria-hidden="true">✳</span><span class="spark two" aria-hidden="true">✦</span><span class="spark three" aria-hidden="true">✳</span>
+ <div class="container"><div class="eyebrow"><span class="pulse"></span> Información recién llegada</div>
+  <h1 class="headline"><span class="top">¡Tenemos</span><span class="bottom">chisme!</span></h1>
+  <p class="lead">Y como todo buen chisme… <strong>se cuenta completo.</strong> 👀</p>
+  <button class="btn btn-main" id="destapar" type="button" aria-controls="revelacion" aria-expanded="false">👀 Ya, cuenta el chisme <span aria-hidden="true">↗</span></button>
+  <p class="tiny">Tranquilidad: este chisme sí se puede compartir.</p>
+ </div>
+</main>
+<main id="revelacion" aria-live="polite">
+<div class="container">
+ <header class="reveal-head"><span class="sticker">¡Se destapó! ✨</span>
+  <div class="pretitle">Y resultó ser algo que nos reúne…</div>
+  <h1 class="reveal-title">Una Red,<br>una <em>Dirección Compartida</em></h1>
+  <p class="reveal-sub">Un encuentro para mirar lo que hemos construido y conversar sobre el camino que viene para nuestra Red de Salud Maule.</p>
+  <div class="hero-graphic" aria-hidden="true"><div class="sun"></div><div class="mountains"></div><div class="orbit"></div><div class="hospitals"><div class="hospital"></div><div class="hospital"></div><div class="hospital"></div></div></div>
+  <p class="scrolldown">Desliza y conoce todos los detalles ↓</p>
+ </header>
+ <div class="section-label">Lo que vamos a compartir</div>
+ <section class="cards" aria-label="Temas del encuentro">
+  <article class="card"><span class="num">01</span><h3>¿Qué logramos?</h3><p>Resultados y aprendizajes de la Planificación Estratégica 2024–2026.</p></article>
+  <article class="card"><span class="num">02</span><h3>¿Hacia dónde vamos?</h3><p>Avances del Rediseño de la Red de Salud Maule, con visión al 2040.</p></article>
+  <article class="card"><span class="num">03</span><h3>¿Cómo avanzaremos?</h3><p>Planificación 2027–2030 y planes estratégicos hospitalarios alineados al Rediseño.</p></article>
+ </section>
+ <section class="details" aria-label="Fechas, horarios y lugar">
+  <h2>¿Cuándo nos vemos?</h2><p>Elige una de las cuatro jornadas de dos horas.</p>
+  <div class="days">
+   <div class="day"><strong class="when">📅 Lunes 30 de noviembre</strong><span>11:00 a 13:00 hrs<br><b>o</b> 15:00 a 17:00 hrs</span></div>
+   <div class="day"><strong class="when">📅 Martes 1 de diciembre</strong><span>11:00 a 13:00 hrs<br><b>o</b> 15:00 a 17:00 hrs</span></div>
+  </div>
+  <div class="place">📍 <b>Caja de Compensación La Araucana</b><br>2 Norte #740, Talca.</div>
+  <p class="requirements">Participación e inscripción obligatoria en una jornada. Coordina tu fecha y horario con tu jefatura. Máximo 100 cupos por jornada.</p>
+ </section>
+ <section class="cta"><h2>Ahora que sabes el chisme…<br>¡que no te lo cuenten!</h2>
+  <p>Elige tu jornada y asegura tu participación.</p>
+  <a id="inscribirme" class="btn btn-main" href="https://docs.google.com/forms/d/1eS8p9fA02oWP5eqPnqXsVH_zRXl188SVy6ZbLfAak7I/viewform" target="_blank" rel="noopener noreferrer">¡Inscríbete aquí! ↗</a>
+ </section>
+ <div class="social"><span id="visitCount" class="number">—</span><span class="label">visitas registradas a esta sorpresa 👀</span></div>
+ <div class="actions"><button class="btn btn-secondary" type="button" id="share">↗ Compartir el chisme</button><button class="btn btn-secondary" type="button" id="volver">Volver al comienzo ↑</button></div>
+ <footer class="foot"><p>Encuentro Institucional · Dirección del Servicio de Salud Maule · 2026</p><p>El contador registra aperturas de la página, no personas identificadas ni inscripciones confirmadas.</p></footer>
+</div>
+</main>
+<section class="stats" id="stats" aria-label="Métricas de la campaña"><div class="container">
+ <span class="eyebrow">Campaña · Tenemos chisme</span><h1>Así va la curiosidad 👀</h1>
+ <p>Resumen de eventos agregados. No recopila nombres ni correos electrónicos.</p>
+ <div class="statgrid"><div class="stat"><div id="s-visitas" class="n">—</div><div class="l">Visitas a la página</div></div><div class="stat"><div id="s-reveal" class="n">—</div><div class="l">Revelaciones abiertas</div></div><div class="stat"><div id="s-cta" class="n">—</div><div class="l">Clics en Inscribirme</div></div></div>
+ <p class="small">Son conteos aproximados de interacciones: una persona puede ingresar más de una vez. Los clics no confirman una inscripción. Al utilizar un servicio público de contadores, las cifras no son auditables.</p>
+ <a class="btn btn-main" href="./">← Volver a la campaña</a>
+ <button class="btn btn-secondary" type="button" id="exportar">Descargar resumen CSV</button>
+</div></section>
+<script>
+(function(){
+'use strict';
+var ROOT='https://counterapi.com/api/ssmaule-encuentro-2026-chisme/',
+    KEY='/red-compartida-nov2026',
+    kinds=['visit','reveal','registration'],
+    values={visit:null,reveal:null,registration:null},
+    control=document.getElementById('destapar');
+function once(k){try{var tag='ssm_chisme_v2_'+k;if(sessionStorage.getItem(tag))return false;sessionStorage.setItem(tag,'1');return true}catch(e){return true}}
+function endpoint(kind,only){return ROOT+kind+KEY+(only?'?readOnly=true':'?readOnly=false')}
+async function count(kind,only){
+ try{
+  var res=await fetch(endpoint(kind,only),{cache:'no-store',mode:'cors',referrerPolicy:'no-referrer'});
+  if(!res.ok)throw Error(String(res.status));
+  var data=await res.json(),v=Number(data.value);
+  if(Number.isFinite(v)&&v>=0){values[kind]=v;update(kind,v)}
+ }catch(e){/* No publicar números no verificados */ }
+}
+function update(kind,v){
+ var ids={visit:['visitCount','s-visitas'],reveal:['s-reveal'],registration:['s-cta']};
+ (ids[kind]||[]).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=new Intl.NumberFormat('es-CL').format(v)});
+}
+function reveal(track){
+ document.body.classList.add('revealed');
+ control.setAttribute('aria-expanded','true');
+ document.title='Una Red, una Dirección Compartida · SSM';
+ window.scrollTo({top:0,behavior:'instant'});
+ if(track)count('reveal',!once('reveal'));
+}
+control.addEventListener('click',function(){reveal(true)});
+document.getElementById('volver').addEventListener('click',function(){document.body.classList.remove('revealed');window.scrollTo({top:0,behavior:'smooth'})});
+document.getElementById('inscribirme').addEventListener('click',function(){count('registration',false)});
+document.getElementById('share').addEventListener('click',async function(){
+ var url=location.origin+location.pathname,button=this;
+ try{if(navigator.share){await navigator.share({title:'¡Tenemos chisme! 👀',text:'Hay un chisme que sí se puede compartir. Entra y descúbrelo.',url:url})}
+ else if(navigator.clipboard){await navigator.clipboard.writeText(url);button.textContent='✓ Enlace copiado';setTimeout(function(){button.textContent='↗ Compartir el chisme'},2200)}
+ else{prompt('Copia el enlace:',url)}}
+ catch(e){}
+});
+var panel=new URLSearchParams(location.search).has('panel');
+if(panel){
+ document.body.classList.add('panel');
+ kinds.forEach(function(k){count(k,true)});
+}else if(document.visibilityState==='visible'){count('visit',!once('visit'))}
+else document.addEventListener('visibilitychange',function onvis(){if(document.visibilityState==='visible'){document.removeEventListener('visibilitychange',onvis);count('visit',!once('visit'))}});
+document.getElementById('exportar').addEventListener('click',function(){
+ var rows=[['Metrica','Conteo'],['Visitas',values.visit??'Sin datos'],['Revelaciones',values.reveal??'Sin datos'],['Clics en inscripcion',values.registration??'Sin datos'],['Consulta (Chile)',new Date().toLocaleString('es-CL',{timeZone:'America/Santiago'})]];
+ var csv='\uFEFF'+rows.map(function(r){return r.map(function(c){return '"'+String(c).replace(/"/g,'""')+'"'}).join(';')}).join('\r\n');
+ var a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+ a.href=u;a.download='metricas_tenemos_chisme_ssm.csv';a.click();setTimeout(function(){URL.revokeObjectURL(u)},1000);
+});
+})();
+</script>
+</body></html>
